@@ -6,6 +6,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "Instagram post - 1@1x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -31,11 +32,13 @@
       "size" : "40x40"
     },
     {
+      "filename" : "Instagram post - 1@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "Instagram post - 1@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
