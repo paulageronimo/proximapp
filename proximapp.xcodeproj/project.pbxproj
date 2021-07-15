@@ -18,6 +18,9 @@
 		5CD44215269CDB8200C405BE /* proximappUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD44214269CDB8200C405BE /* proximappUITests.m */; };
 		5CD44228269F557100C405BE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD44227269F557100C405BE /* LoginViewController.m */; };
 		5CD4422B269F565C00C405BE /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4422A269F565C00C405BE /* SignupViewController.m */; };
+		5CD4422E26A0841000C405BE /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4422D26A0841000C405BE /* SettingsViewController.m */; };
+		5CD4423126A0CFE800C405BE /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4423026A0CFE800C405BE /* FeedViewController.m */; };
+		5CD4423426A0D12D00C405BE /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4423326A0D12D00C405BE /* Product.m */; };
 		69363624ECA8DA2425E7CBEE /* libPods-proximapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 257E0B6DDFBA494C5B40DD90 /* libPods-proximapp.a */; };
 		69859DF0F16A909630642711 /* libPods-proximapp-proximappUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 169EF12DCDEC5C6EF395FB8E /* libPods-proximapp-proximappUITests.a */; };
 		DE5EDB1FE9B73914189363E5 /* libPods-proximappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 143000CF5CB0AEAF7F825B5F /* libPods-proximappTests.a */; };
@@ -67,6 +70,12 @@
 		5CD44227269F557100C405BE /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5CD44229269F565C00C405BE /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		5CD4422A269F565C00C405BE /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		5CD4422C26A0841000C405BE /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5CD4422D26A0841000C405BE /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5CD4422F26A0CFE800C405BE /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		5CD4423026A0CFE800C405BE /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		5CD4423226A0D12D00C405BE /* Product.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		5CD4423326A0D12D00C405BE /* Product.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		688CB4D041A3092544E936F2 /* Pods-proximappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proximappTests.debug.xcconfig"; path = "Target Support Files/Pods-proximappTests/Pods-proximappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF71C59AA2B38D3800218C59 /* Pods-proximappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proximappTests.release.xcconfig"; path = "Target Support Files/Pods-proximappTests/Pods-proximappTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC4FD2087DC46C6CB18864F4 /* Pods-proximapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proximapp.release.xcconfig"; path = "Target Support Files/Pods-proximapp/Pods-proximapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +182,8 @@
 		5CD44223269F553D00C405BE /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				5CD4423226A0D12D00C405BE /* Product.h */,
+				5CD4423326A0D12D00C405BE /* Product.m */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -184,6 +195,10 @@
 				5CD44227269F557100C405BE /* LoginViewController.m */,
 				5CD44229269F565C00C405BE /* SignupViewController.h */,
 				5CD4422A269F565C00C405BE /* SignupViewController.m */,
+				5CD4422C26A0841000C405BE /* SettingsViewController.h */,
+				5CD4422D26A0841000C405BE /* SettingsViewController.m */,
+				5CD4422F26A0CFE800C405BE /* FeedViewController.h */,
+				5CD4423026A0CFE800C405BE /* FeedViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -450,10 +465,13 @@
 			files = (
 				5CD4422B269F565C00C405BE /* SignupViewController.m in Sources */,
 				5CD441F5269CDB8100C405BE /* ViewController.m in Sources */,
+				5CD4423126A0CFE800C405BE /* FeedViewController.m in Sources */,
+				5CD4423426A0D12D00C405BE /* Product.m in Sources */,
 				5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */,
 				5CD44200269CDB8200C405BE /* main.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,
 				5CD44228269F557100C405BE /* LoginViewController.m in Sources */,
+				5CD4422E26A0841000C405BE /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

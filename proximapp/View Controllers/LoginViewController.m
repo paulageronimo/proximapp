@@ -24,11 +24,10 @@
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
     
-    
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             //SignupViewController* alert = [alert @"Could not log in user"];//Next, we send the loggedIn message to our new instance ??
-            [self alert:@"Could not log in user"];
+            [self alert:error.localizedDescription];
         } else {
             [self performSegueWithIdentifier:@"loggedinSegue" sender:nil];
         }
@@ -44,6 +43,7 @@
     return true;
     
 }
+
 -(void) alert: (NSString *)errorMessage{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification"
     message:errorMessage

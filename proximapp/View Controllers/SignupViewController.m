@@ -50,11 +50,6 @@
     }
 }
 
--(void) onLogout {
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
-    }];
-}
 // additional functions, for cleanliness and organization
 -(BOOL)validInfo {
     if ([self.usernameField.text isEqual:@""]||[self.passwordField.text isEqual:@""]||[self.emailField.text isEqual:@""]) {
