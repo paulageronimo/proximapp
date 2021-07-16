@@ -7,7 +7,11 @@
 
 #import "FeedViewController.h"
 #import "Parse/Parse.h"
+#import "LoginViewController.h"
 #import "Product.h"
+#import "FeedProductCell.h"
+#import "AppDelegate.h"
+#import "SceneDelegate.h"
 
 @interface FeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -35,7 +39,7 @@
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
     [postQuery includeKey:@"createdAt"];
-    postQuery.limit = 20;
+    postQuery.limit = 1;
 
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Product *> *posts, NSError* _Nullable error) {
@@ -50,7 +54,7 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -58,14 +62,18 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    <#code#>
+    FeedProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FeedProductCell" forIndexPath:indexPath];
+    Product *product = self.products[indexPath.row];
+    cell.product = product;
+    return cell;
 }
 
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    <#code#>
+    //return self.products.count;
+    return 1;
 }
 
 
