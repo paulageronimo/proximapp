@@ -9,8 +9,4 @@
 
 @implementation User
 
-+ (nullable instancetype)currentUser;
-
 @end
-@end
-

@@ -14,8 +14,10 @@
     UIActivityIndicatorView *activityIndicatorView;
 }
 
-//@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
-//@property (weak, nonatomic) IBOutlet UIButton *editLocationPrefButton;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
+@property (weak, nonatomic) IBOutlet UIButton *editLocationPrefButton;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+
 
 @end
 
@@ -23,10 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect frame = CGRectMake (120.0, 185.0, 80, 80);
-    activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:frame];
-    activityIndicatorView.color = [UIColor blueColor];
-    [self.view addSubview:activityIndicatorView];
+    [self setupView];
 }
 //- (IBAction)onEditProfile:(id)sender {
 //    NSLog(@"Edit profile selected.");
@@ -36,6 +35,16 @@
 //    NSLog(@"Edit location selected.");
 //
 //}
+- (void)setupView {
+    _editProfileButton.layer.cornerRadius = 12.0;
+    _editLocationPrefButton.layer.cornerRadius = 12.0;
+    _logoutButton.layer.cornerRadius = 12.0;
+    
+    CGRect frame = CGRectMake (120.0, 185.0, 80, 80);
+    activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:frame];
+    activityIndicatorView.color = [UIColor blueColor];
+    [self.view addSubview:activityIndicatorView];
+}
 
 - (IBAction)onLogout:(id)sender {
     [activityIndicatorView startAnimating];

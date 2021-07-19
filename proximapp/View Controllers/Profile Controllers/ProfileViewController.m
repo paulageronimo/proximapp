@@ -8,6 +8,7 @@
 #import "ProfileViewController.h"
 
 @interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *addProductButton;
 
 @end
 
@@ -15,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _addProductButton.layer.cornerRadius = 12.0;
 }
 
 
