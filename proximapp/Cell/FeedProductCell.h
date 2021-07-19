@@ -14,14 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *logoPic;
 @property (weak, nonatomic) IBOutlet UILabel *productLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
-//@property (weak, nonatomic) IBOutlet UILabel *caption;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
-//@property (weak, nonatomic) IBOutlet UIButton *commentButton;
-//@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
-//@property (weak, nonatomic) IBOutlet UITextField *messageCell;
-//@property (weak, nonatomic) IBOutlet UIButton *sendMessage;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
+//TODO: support button, message cell, send message button
 
 @property (strong, nonatomic) Product *product;
 

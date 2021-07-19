@@ -29,27 +29,21 @@
     Product *newProduct = [Product new];
     newProduct.image = [self getPFFileFromImage:image];
     newProduct.author = [PFUser currentUser];
-    //newProduct.prodName = prodName;
-    //newProduct.likeCount = @(0);
-    //newProduct.commentCount = @(0);
-    
+    //TODO: product name
     [newProduct saveInBackgroundWithBlock: completion];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
-    // check if image is not nil
     if (!image) {
         return nil;
     }
     
     NSData *imageData = UIImagePNGRepresentation(image);
-    // get image data and check if that is not nil
     if (!imageData) {
         return nil;
     }
     //PFFile vs PFFileObject
-    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
+    return [PFFileObject fileObjectWithName:@"rings.png" data:imageData];
 }
 
 @end
