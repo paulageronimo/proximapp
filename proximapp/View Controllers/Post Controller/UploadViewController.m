@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *isAvailable;
 @property (weak, nonatomic) IBOutlet UITextField *keywordFiled;
 @property (weak, nonatomic) IBOutlet UIButton *postProduct;
+@property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
 @property (strong, nonatomic) UIImage *image;
 @end
@@ -32,18 +33,17 @@
 }
 - (void)setupView {
     _postProduct.layer.cornerRadius = 12.0;
+    _backgroundView.layer.cornerRadius = 12.0;
 }
 
+//TODO: make this code less messy :/
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
-    // Get the image captured by the UIImagePickerController
 //        UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
-    // Do something with the images (based on your use case)
     self.image = editedImage;
     [self.pictureView setImage:self.image];
     
-    // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -61,8 +61,8 @@
         [self exitCreate];
     }
 }
+
 - (void)exitCreate {
-    // clear out current assets, segue back to feed tab
     self.image = nil;
     [self.pictureView setImage:[UIImage imageNamed:@"image_placeholder"]];
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
@@ -70,6 +70,7 @@
     UIViewController *HomeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     sceneDelegate.window.rootViewController = HomeViewController;
 }
+
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     
@@ -83,7 +84,8 @@
     
     return newImage;
 }
--(IBAction)imageSelected:(id)sender {
+
+- (IBAction)imageSelected:(id)sender {
     NSLog(@"image tapped!");
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;

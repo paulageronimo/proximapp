@@ -42,19 +42,16 @@
     [postQuery includeKey:@"createdAt"];
     postQuery.limit = 20;
 
-    // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Product *> *products, NSError* _Nullable error) {
         if (products != nil) {
             self.products = [Product copy];
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
-            // do something with the array of object returned by the call
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
 }
-
 
 #pragma mark - Navigation
 
@@ -70,15 +67,9 @@
     return cell;
 }
 
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return 0; }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return self.products.count;
-    return 0;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-   return 442;
-}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 442; }
 
 
 @end

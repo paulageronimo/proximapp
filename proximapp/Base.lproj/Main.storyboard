@@ -637,7 +637,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gearshape" catalog="system"/>
                                 <connections>
-                                    <segue destination="HBo-lH-l1b" kind="show" id="gqs-SV-vzN"/>
+                                    <segue destination="HBo-lH-l1b" kind="show" identifier="toSettingsSegue" id="gqs-SV-vzN"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -886,12 +886,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="76P-fw-f7P">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="rOp-5I-mbM">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="WC9-WZ-L0P">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Sqe-KJ-ajk">
+                            <connections>
+                                <action selector="onSave:" destination="JSd-KN-JIj" id="5hy-2r-u63"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -905,7 +903,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qgf-eb-gK1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="VeZ-cW-wRc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4076.811594202899" y="1299.1071428571429"/>
+            <point key="canvasLocation" x="4077" y="1297"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Roy-Cg-Pu2">
@@ -1183,6 +1181,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="usg-6P-APK"/>
                     <connections>
+                        <outlet property="backgroundView" destination="iLc-9x-QGY" id="sow-mZ-t5f"/>
                         <outlet property="isAvailable" destination="58p-qp-Tp9" id="pvw-zk-H5s"/>
                         <outlet property="keywordFiled" destination="heh-aW-vr5" id="YYz-H2-gtw"/>
                         <outlet property="pictureView" destination="HN9-J4-bXz" id="vRk-nS-miC"/>

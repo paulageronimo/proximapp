@@ -8,8 +8,7 @@
 #import "SignupViewController.h"
 
 @interface SignupViewController ()
-@property(weak, nonatomic) IBOutlet UITextField *firstNField;
-@property(weak, nonatomic) IBOutlet UITextField *lastNField;
+@property(weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
@@ -20,38 +19,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
-
 
 - (IBAction)onSignup:(id)sender {
     if ([self validInfo]) {
-        // initialize a user object
         PFUser *newUser = [PFUser user];
         
-        // set user properties
+        //TODO: name field
         newUser.username = self.usernameField.text;
-        //newUser.firstname = self.firstNField.text;
-        //newUser.lastname = self.lastNField.text;
         newUser.email = self.emailField.text;
         newUser.password = self.passwordField.text;
         
-        
-        // call sign up function on the object
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
                 [self alert:@"Unable to register user."];
             } else {
                 [self alert:@"User registered successfully"];
                 [self performSegueWithIdentifier:@"toLoginSegue" sender:nil];
-                // manually segue to logged in view
             }
         }];
     }
 }
 
-// additional functions, for cleanliness and organization
--(BOOL)validInfo {
+#pragma mark - helper functions
+
+- (BOOL)validInfo {
     if ([self.usernameField.text isEqual:@""]||[self.passwordField.text isEqual:@""]||[self.emailField.text isEqual:@""]) {
         [self alert:@"Invalid username and password."];
         return false;
@@ -59,7 +51,8 @@
     return true;
     
 }
--(void) alert: (NSString *)errorMessage{
+
+- (void)alert: (NSString *)errorMessage{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification"
     message:errorMessage
     preferredStyle:(UIAlertControllerStyleAlert)];
@@ -69,16 +62,5 @@
     [alert addAction:okAction];
     [self presentViewController:alert animated:YES completion:^{}];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

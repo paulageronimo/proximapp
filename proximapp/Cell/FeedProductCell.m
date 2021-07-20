@@ -28,7 +28,7 @@
     product = product;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    self.productLabel.text = product[@"product_label"];
+    self.productLabel.text = product[@"prodName"];
     
     //TODO: upvotes, likes, support button
     

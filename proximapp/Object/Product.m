@@ -9,14 +9,16 @@
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
 
-@implementation Product 
+@implementation Product
 
 @dynamic productID;
 @dynamic userID;
 @dynamic author;
 @dynamic prodName;
 @dynamic image;
-@dynamic logo;
+@dynamic price;
+@dynamic availability;
+@dynamic keywords;
 //@dynamic likeCount;
 //@dynamic commentCount;
 
@@ -24,7 +26,7 @@
     return @"Product";
 }
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void)postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Product *newProduct = [Product new];
     newProduct.image = [self getPFFileFromImage:image];

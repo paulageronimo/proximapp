@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (IBAction)tapLogin:(id)sender {
@@ -34,8 +33,8 @@
     }];
 }
 
-// additional functions, for cleanliness and organization
--(BOOL)validInfo {
+#pragma mark - helper functions
+- (BOOL)validInfo {
     if ([self.usernameField.text isEqual:@""]||[self.passwordField.text isEqual:@""]) {
         [self alert:@"Invalid username and password."];
         return false;
@@ -44,7 +43,7 @@
     
 }
 
--(void) alert: (NSString *)errorMessage{
+- (void)alert: (NSString *)errorMessage{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification"
     message:errorMessage
     preferredStyle:(UIAlertControllerStyleAlert)];
@@ -54,14 +53,5 @@
     [alert addAction:okAction];
     [self presentViewController:alert animated:YES completion:^{}];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

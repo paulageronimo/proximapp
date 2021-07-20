@@ -16,16 +16,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *pfp;
 @property (weak, nonatomic) IBOutlet UIView *businessView;
 @property (weak, nonatomic) IBOutlet UILabel *businessBadge;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
 @implementation ProfileViewController
 
-- (void)viewDidLoad {
+-(void) viewDidLoad {
     [super viewDidLoad];
     [self setupView];
 }
 
+//TODO: add a refresh to view
 -(void) setupView {
     _addProductButton.layer.cornerRadius = 12.0;
     _businessBadge.layer.cornerRadius = 12.0;
@@ -48,7 +50,6 @@
             self.pfp.layer.cornerRadius = self.pfp.frame.size.height/2;
         }
     }];
-    
 }
 
 @end
