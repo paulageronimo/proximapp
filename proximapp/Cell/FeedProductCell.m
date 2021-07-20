@@ -8,35 +8,40 @@
 #import "FeedProductCell.h"
 #import "Product.h"
 #import "Parse/Parse.h"
+#import "UploadViewController.h"
 
 @implementation FeedProductCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
 }
+- (void)setupView {
+    
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
 
--(void) setProduct:(Product *)product {
+- (void)setProduct:(Product *)product {
     NSLog(@"Got into product.");
     product = product;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    self.productLabel.text = @"Really cool item name";
+    self.productLabel.text = product[@"product_label"];
     
     //TODO: upvotes, likes, support button
     
-    self.priceLabel.text = @"$ 15.00";
+    self.priceLabel.text = product[@"price"];
     
     // TODO: time stamp
+    self.timeLabel.text = product[@""];
     // TODO: dynamic profile picture
     
-    UIImage *logo = [UIImage imageNamed:@"Default_pfp.png"];
+    UIImage *logo = [UIImage imageNamed:@"pfp.png"];
     [self.logoPic setImage:logo];
     
-    PFFileObject *postImg = (PFFileObject *)[UIImage imageNamed:@"rings.png"]; // switch to image.png when returning database image
+    UIImage *postImg = [UIImage imageNamed:@"image.png"];
     [self.postImageView setImage:postImg];
     NSLog(@"Successfully set product.");
 }

@@ -16,6 +16,7 @@
 @interface FeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 @property (strong, nonatomic) NSMutableArray *products;
 
 @end
@@ -39,11 +40,11 @@
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
     [postQuery includeKey:@"createdAt"];
-    postQuery.limit = 1;
+    postQuery.limit = 20;
 
     // fetch data asynchronously
-    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Product *> *posts, NSError* _Nullable error) {
-        if (posts != nil) {
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Product *> *products, NSError* _Nullable error) {
+        if (products != nil) {
             self.products = [Product copy];
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
