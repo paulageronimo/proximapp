@@ -13,6 +13,9 @@
 		5C43631326A6080E00D7BA27 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631226A6080E00D7BA27 /* DetailsViewController.m */; };
 		5C43631626A60AAA00D7BA27 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631526A60AAA00D7BA27 /* User.m */; };
 		5C43631A26A6142700D7BA27 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631926A6142700D7BA27 /* UploadViewController.m */; };
+		5C43631D26A7692900D7BA27 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631C26A7692900D7BA27 /* MapViewController.m */; };
+		5C43632126A76BC400D7BA27 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43632026A76BC400D7BA27 /* LocationsViewController.m */; };
+		5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43632326A76CD900D7BA27 /* SearchProductCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
 		5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441F1269CDB8100C405BE /* SceneDelegate.m */; };
 		5CD441F8269CDB8100C405BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD441F6269CDB8100C405BE /* Main.storyboard */; };
@@ -66,6 +69,12 @@
 		5C43631526A60AAA00D7BA27 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5C43631826A6142700D7BA27 /* UploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		5C43631926A6142700D7BA27 /* UploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		5C43631B26A7692900D7BA27 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		5C43631C26A7692900D7BA27 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		5C43631F26A76BC400D7BA27 /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
+		5C43632026A76BC400D7BA27 /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
+		5C43632226A76CD900D7BA27 /* SearchProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchProductCell.h; sourceTree = "<group>"; };
+		5C43632326A76CD900D7BA27 /* SearchProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchProductCell.m; sourceTree = "<group>"; };
 		5CD441EA269CDB8100C405BE /* proximapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proximapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD441ED269CDB8100C405BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5CD441EE269CDB8100C405BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -175,6 +184,17 @@
 			path = "Post Controller";
 			sourceTree = "<group>";
 		};
+		5C43631E26A76BB300D7BA27 /* Map Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5C43631B26A7692900D7BA27 /* MapViewController.h */,
+				5C43631C26A7692900D7BA27 /* MapViewController.m */,
+				5C43631F26A76BC400D7BA27 /* LocationsViewController.h */,
+				5C43632026A76BC400D7BA27 /* LocationsViewController.m */,
+			);
+			path = "Map Controller";
+			sourceTree = "<group>";
+		};
 		5CD441E1269CDB8000C405BE = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +259,8 @@
 			children = (
 				5CD4423526A0E85700C405BE /* FeedProductCell.h */,
 				5CD4423626A0E85700C405BE /* FeedProductCell.m */,
+				5C43632226A76CD900D7BA27 /* SearchProductCell.h */,
+				5C43632326A76CD900D7BA27 /* SearchProductCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -257,6 +279,7 @@
 		5CD44225269F554E00C405BE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C43631E26A76BB300D7BA27 /* Map Controller */,
 				5C43631726A613F400D7BA27 /* Post Controller */,
 				5C43630C26A5FD7800D7BA27 /* Authentication Controllers */,
 				5C43630D26A5FD8B00D7BA27 /* Feed Controllers */,
@@ -532,13 +555,16 @@
 				5C43631A26A6142700D7BA27 /* UploadViewController.m in Sources */,
 				5C43631626A60AAA00D7BA27 /* User.m in Sources */,
 				5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */,
+				5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */,
 				5CD44200269CDB8200C405BE /* main.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,
 				5CD44228269F557100C405BE /* LoginViewController.m in Sources */,
 				5CD4422E26A0841000C405BE /* SettingsViewController.m in Sources */,
+				5C43631D26A7692900D7BA27 /* MapViewController.m in Sources */,
 				5C43631026A607FC00D7BA27 /* otherProfileViewController.m in Sources */,
 				5C43631326A6080E00D7BA27 /* DetailsViewController.m in Sources */,
 				5C43630A26A5FD1600D7BA27 /* ProfileViewController.m in Sources */,
+				5C43632126A76BC400D7BA27 /* LocationsViewController.m in Sources */,
 				5CD4423726A0E85700C405BE /* FeedProductCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

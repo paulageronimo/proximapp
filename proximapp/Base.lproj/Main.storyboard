@@ -470,7 +470,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="zdp-Oy-Idd" kind="relationship" relationship="rootViewController" id="BKm-IJ-M4i"/>
+                        <segue destination="Cmo-jZ-Tdz" kind="relationship" relationship="rootViewController" id="duV-dZ-sUW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eY6-Xi-31h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -480,7 +480,7 @@
         <!--Lookup Item-->
         <scene sceneID="uCm-X0-9qv">
             <objects>
-                <viewController id="zdp-Oy-Idd" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="zdp-Oy-Idd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="myB-r0-cHd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -563,12 +563,12 @@
                     <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="7Lp-mx-6yc"/>
                     <navigationItem key="navigationItem" title="Lookup Item" id="S1K-ZS-upu"/>
                     <connections>
-                        <segue destination="ixz-GE-9sG" kind="presentation" id="ATe-Im-7a5"/>
+                        <segue destination="ixz-GE-9sG" kind="show" id="ATe-Im-7a5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXy-cW-sGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1219" y="1608"/>
+            <point key="canvasLocation" x="1219" y="2290"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="aaH-xI-hxQ">
@@ -1038,22 +1038,23 @@
         <!--Locations View Controller-->
         <scene sceneID="yei-vP-MIA">
             <objects>
-                <viewController id="ixz-GE-9sG" customClass="LocationsViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ixz-GE-9sG" customClass="LocationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y0D-jH-w5r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="s9n-L9-E9v"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ggw-ci-Sh6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJr-Oi-ktY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1219" y="3014"/>
         </scene>
-        <!--View Controller-->
+        <!--MapViewController-->
         <scene sceneID="RAN-C8-QEn">
             <objects>
-                <viewController id="Cmo-jZ-Tdz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cmo-jZ-Tdz" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bU-KC-Scf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1066,10 +1067,15 @@
                         <viewLayoutGuide key="safeArea" id="xwe-1j-tpC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cFm-fG-7x6"/>
+                    <connections>
+                        <outlet property="mapView" destination="PcM-AY-Wp2" id="PJ6-ec-7Cf"/>
+                        <segue destination="zdp-Oy-Idd" kind="presentation" id="Vos-qY-SR7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYJ-Lq-c9e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1819" y="2275"/>
+            <point key="canvasLocation" x="1219" y="1608"/>
         </scene>
         <!--UploadViewController-->
         <scene sceneID="uxG-BU-lIP">
