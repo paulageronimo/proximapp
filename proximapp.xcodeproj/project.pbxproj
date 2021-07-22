@@ -16,6 +16,8 @@
 		5C43631D26A7692900D7BA27 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631C26A7692900D7BA27 /* MapViewController.m */; };
 		5C43632126A76BC400D7BA27 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43632026A76BC400D7BA27 /* LocationsViewController.m */; };
 		5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43632326A76CD900D7BA27 /* SearchProductCell.m */; };
+		5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */; };
+		5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F4226A943A9009063BA /* LocationCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
 		5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441F1269CDB8100C405BE /* SceneDelegate.m */; };
 		5CD441F8269CDB8100C405BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD441F6269CDB8100C405BE /* Main.storyboard */; };
@@ -75,6 +77,10 @@
 		5C43632026A76BC400D7BA27 /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
 		5C43632226A76CD900D7BA27 /* SearchProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchProductCell.h; sourceTree = "<group>"; };
 		5C43632326A76CD900D7BA27 /* SearchProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchProductCell.m; sourceTree = "<group>"; };
+		5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
+		5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
+		5CBD3F4126A943A9009063BA /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
+		5CBD3F4226A943A9009063BA /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		5CD441EA269CDB8100C405BE /* proximapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proximapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD441ED269CDB8100C405BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5CD441EE269CDB8100C405BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -261,6 +267,8 @@
 				5CD4423626A0E85700C405BE /* FeedProductCell.m */,
 				5C43632226A76CD900D7BA27 /* SearchProductCell.h */,
 				5C43632326A76CD900D7BA27 /* SearchProductCell.m */,
+				5CBD3F4126A943A9009063BA /* LocationCell.h */,
+				5CBD3F4226A943A9009063BA /* LocationCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -272,6 +280,8 @@
 				5CD4423326A0D12D00C405BE /* Product.m */,
 				5C43631426A60AAA00D7BA27 /* User.h */,
 				5C43631526A60AAA00D7BA27 /* User.m */,
+				5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */,
+				5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -548,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */,
 				5CD4422B269F565C00C405BE /* SignupViewController.m in Sources */,
 				5C43630726A5FB1D00D7BA27 /* EditProfileViewController.m in Sources */,
 				5CD4423126A0CFE800C405BE /* FeedViewController.m in Sources */,
@@ -557,6 +568,7 @@
 				5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */,
 				5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */,
 				5CD44200269CDB8200C405BE /* main.m in Sources */,
+				5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,
 				5CD44228269F557100C405BE /* LoginViewController.m in Sources */,
 				5CD4422E26A0841000C405BE /* SettingsViewController.m in Sources */,

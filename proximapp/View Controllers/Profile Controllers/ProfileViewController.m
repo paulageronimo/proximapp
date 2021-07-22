@@ -33,7 +33,7 @@
     _businessBadge.layer.cornerRadius = 12.0;
    PFUser *currentUser = [PFUser currentUser];
     
-    if ([currentUser[@"isBusiness"]  isEqual: @YES]) {
+    if (currentUser[@"isBusiness"]) {
        _businessView.hidden=NO;
    } else {
        _businessView.hidden = YES;

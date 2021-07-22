@@ -24,19 +24,17 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.searchBar.delegate = self;
     
     
-    [self fetchLocationsWithQuery:@"Restaurants" nearCity:@"San Francisco"];
+    [self fetchLocationsWithQuery:@"Restaurants" nearCity:@"Laredo"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -44,7 +42,7 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SearchProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchProductCell" forIndexPath:indexPath];
+    SearchProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
     
     NSDictionary *result = self.results[indexPath.row];
     [cell updateWithLocation:result];
@@ -65,12 +63,12 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     NSString *newText = [searchBar.text stringByReplacingCharactersInRange:range withString:text];
-    [self fetchLocationsWithQuery:newText nearCity:@"San Francisco"];
+    [self fetchLocationsWithQuery:newText nearCity:@"Laredo"];
     return true;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self fetchLocationsWithQuery:searchBar.text nearCity:@"San Francisco"];
+    [self fetchLocationsWithQuery:searchBar.text nearCity:@"Laredo"];
 }
 
 - (void)fetchLocationsWithQuery:(NSString *)query nearCity:(NSString *)city {
