@@ -19,8 +19,9 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
-    MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
-    [self.mapView setRegion:sfRegion animated:false];
+    //MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
+    MKCoordinateRegion lrdRegion =MKCoordinateRegionMake(CLLocationCoordinate2DMake(27.5036, -99.5076), MKCoordinateSpanMake(0.1, 0.1));
+    [self.mapView setRegion:lrdRegion animated:true];
     // Do any additional setup after loading the view.
 }
 
@@ -38,21 +39,22 @@
      }
 
      UIImageView *imageView = (UIImageView*)annotationView.leftCalloutAccessoryView;
-     //imageView.image = [UIImage imageNamed:@"camera-icon"];
+     imageView.image = [UIImage imageNamed:@"camera-icon"];
     
     PhotoAnnotation *photoAnnotationItem = annotation; // refer to this generic annotation as our more specific PhotoAnnotation
     imageView.image = photoAnnotationItem.photo; // set the image into the callout imageview
     annotationView.image = photoAnnotationItem.photo;
     return annotationView;
+    return MapViewController;
  }
 
 - (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
     [self.navigationController popViewControllerAnimated:true];
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
-    PhotoAnnotation *point = [PhotoAnnotation new];
-    point.coordinate = coordinate;
-    point.photo = [self resizeImage:self.selectedImage withSize:CGSizeMake(50.0, 50.0)];
-    [self.mapView addAnnotation:point];
+//    PhotoAnnotation *point = [PhotoAnnotation new];
+//    point.coordinate = coordinate;
+//    point.photo = [self resizeImage:self.selectedImage withSize:CGSizeMake(50.0, 50.0)];
+//    [self.mapView addAnnotation:point];
 }
 
 /*
