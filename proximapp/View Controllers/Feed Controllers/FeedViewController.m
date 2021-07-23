@@ -8,7 +8,7 @@
 #import "FeedViewController.h"
 #import "Parse/Parse.h"
 #import "LoginViewController.h"
-#import "Product.h"
+#import "Post.h"
 #import "FeedProductCell.h"
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
@@ -16,8 +16,8 @@
 @interface FeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-
-@property (strong, nonatomic) NSMutableArray *products;
+//@property (nonatomic, assign) NSInteger countProds;
+@property (strong, nonatomic) NSMutableArray *posts;
 
 @end
 
@@ -42,34 +42,45 @@
     [postQuery includeKey:@"createdAt"];
     postQuery.limit = 20;
 
-    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Product *> *products, NSError* _Nullable error) {
-        if (products != nil) {
-            self.products = [Product copy];
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> *posts, NSError* _Nullable error) {
+        if (posts!= nil) {
+            //self.posts = [Post copy];
+            self.posts = [posts copy];
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
         } else {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"error on post query %@", error.localizedDescription);
         }
     }];
 }
 
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+//#pragma mark - Navigation
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//}
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     FeedProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FeedProductCell" forIndexPath:indexPath];
-    Product *product = self.products[indexPath.row];
-    cell.product = product;
+    Post *post = self.posts[indexPath.row];
+    cell.post = post;
     return cell;
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return 0; }
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    //_countProds = self.products.count;
+//    if (![(NSNumber *)self.products.count isEqual:nil]) {
+//        return self.products.count;
+//    }
+    //return self.products.count;
+    NSLog(@"!!!! There are %lu products counted for", (unsigned long)self.posts.count);
+    //return 1;
+    return self.posts.count;
+    
+}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 442; }
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 442; }
 
 
 @end

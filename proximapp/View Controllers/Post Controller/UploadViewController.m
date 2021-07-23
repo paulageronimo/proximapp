@@ -7,7 +7,7 @@
 
 #import "UploadViewController.h"
 #import "Parse/Parse.h"
-#import "Product.h"
+#import "Post.h"
 #import "FeedProductCell.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *priceField;
 @property (weak, nonatomic) IBOutlet UISwitch *isAvailable;
 @property (weak, nonatomic) IBOutlet UITextField *keywordFiled;
-@property (weak, nonatomic) IBOutlet UIButton *postProduct;
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
 @property (strong, nonatomic) UIImage *image;
@@ -32,8 +31,19 @@
     [self setupView];
 }
 - (void)setupView {
-    _postProduct.layer.cornerRadius = 12.0;
+    self.image = nil;
+    self.productNameField.delegate = self;
+    self.priceField.delegate = self;
+    self.keywordFiled.delegate = self;
+    
+    [self.isAvailable addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    //_postProduct.layer.cornerRadius = 12.0;
     _backgroundView.layer.cornerRadius = 12.0;
+}
+
+- (void)switchChanged:(UISwitch *)sender {
+   BOOL value = sender.on;
 }
 
 //TODO: make this code less messy :/
@@ -57,7 +67,8 @@
     } else {
         CGSize size = CGSizeMake(400, 400);
         UIImage *image = [self resizeImage:self.image withSize:size];
-        [Product postUserImage:image withCaption:self.productNameField.text withCompletion:nil];
+        //[Post postUserImage:image withCaption:prodName withCompletion:nil];
+        [Post postUserImage:image withCaption:self.productNameField.text withCompletion:nil];
         [self exitCreate];
     }
 }

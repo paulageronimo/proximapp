@@ -6,9 +6,9 @@
 //
 
 #import "FeedProductCell.h"
-#import "Product.h"
+#import "Post.h"
 #import "Parse/Parse.h"
-#import "UploadViewController.h"
+#import "DateTools.h"
 
 @implementation FeedProductCell
 
@@ -23,26 +23,30 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)setProduct:(Product *)product {
+- (void)setPost:(Post *)post { // custom setter so PostCell can be reused
     NSLog(@"Got into product.");
-    product = product;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    self.productLabel.text = product[@"prodName"];
-    
+    post = post;
     //TODO: upvotes, likes, support button
     
-    self.priceLabel.text = product[@"price"];
-    
     // TODO: time stamp
-    self.timeLabel.text = product[@""];
+    //self.timeLabel.text = product[@""];
     // TODO: dynamic profile picture
     
-    UIImage *logo = [UIImage imageNamed:@"pfp.png"];
-    [self.logoPic setImage:logo];
+//    NSLog(@"Setting post! Post = %@", post);
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.productLabel.text = post[@"prodName"];
+    self.priceLabel.text = post[@"price"];
+    self.timeLabel.text = [post[@"createdAt"] timeAgoSinceNow];
     
-    UIImage *postImg = [UIImage imageNamed:@"image.png"];
-    [self.postImageView setImage:postImg];
+    PFFileObject *img = post[@"image"];
+    [img getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error getting image: %@", error.localizedDescription);
+        } else {
+            UIImage *postImg = [UIImage imageWithData:data];
+            [self.postImageView setImage:postImg];
+        }
+    }];
     NSLog(@"Successfully set product.");
 }
 

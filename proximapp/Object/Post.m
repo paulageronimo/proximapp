@@ -1,51 +1,55 @@
 //
-//  Product.m
+//  Post.m
 //  proximapp
 //
 //  Created by Paula Leticia Geronimo on 7/15/21.
 //
 
-#import "Product.h"
+#import "Post.h"
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
 
-@implementation Product
+@implementation Post
 
-@dynamic productID;
+@dynamic postID;
 @dynamic userID;
 @dynamic author;
 @dynamic prodName;
 @dynamic image;
 @dynamic price;
-@dynamic availability;
-@dynamic keywords;
+//@dynamic availability;
+//@dynamic keywords;
 //@dynamic likeCount;
 //@dynamic commentCount;
 
 + (nonnull NSString *)parseClassName {
-    return @"Product";
+    return @"Post";
 }
 
 + (void)postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
-    Product *newProduct = [Product new];
-    newProduct.image = [self getPFFileFromImage:image];
-    newProduct.author = [PFUser currentUser];
-    //TODO: product name
-    [newProduct saveInBackgroundWithBlock: completion];
+    Post *newPost = [Post new];
+    newPost.image = [self getPFFileFromImage:image];
+    newPost.author = [PFUser currentUser];
+    //newPost.logo = [PFUser currentUser[@"pfp"]];
+    newPost.prodName = caption;
+    newPost.price = @"";
+    //newPost.availability = (PFObject *)@YES;
+    //newPost.keywords = @"";
+    
+    [newPost saveInBackgroundWithBlock: completion];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
     if (!image) {
         return nil;
     }
-    
     NSData *imageData = UIImagePNGRepresentation(image);
     if (!imageData) {
         return nil;
     }
-    //PFFile vs PFFileObject
-    return [PFFileObject fileObjectWithName:@"rings.png" data:imageData];
+    
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 @end
