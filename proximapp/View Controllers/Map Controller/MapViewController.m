@@ -21,6 +21,7 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     //MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
+    //TODO: Get coordinates directly from current user info instead of manual input
     MKCoordinateRegion lrdRegion =MKCoordinateRegionMake(CLLocationCoordinate2DMake(27.5036, -99.5076), MKCoordinateSpanMake(0.1, 0.1));
     [self.mapView setRegion:lrdRegion animated:true];
 }

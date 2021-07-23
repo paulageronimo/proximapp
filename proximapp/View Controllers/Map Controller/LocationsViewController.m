@@ -57,7 +57,7 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
     NSNumber *lat = [venue valueForKeyPath:@"location.lat"];
     NSNumber *lng = [venue valueForKeyPath:@"location.lng"];
     NSLog(@"%@, %@", lat, lng);
-    //[self.delegate locationsViewController:self didPickLocationWithLatitude:lat longitude:lng];
+    [self.delegate locationsViewController:self didPickLocationWithLatitude:lat longitude:lng];
     
 }
 
@@ -73,7 +73,7 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 
 - (void)fetchLocationsWithQuery:(NSString *)query nearCity:(NSString *)city {
     NSString *baseURLString = @"https://api.foursquare.com/v2/venues/search?";
-    NSString *queryString = [NSString stringWithFormat:@"client_id=%@&client_secret=%@&v=20141020&near=%@,CA&query=%@", clientID, clientSecret, city, query];
+    NSString *queryString = [NSString stringWithFormat:@"client_id=%@&client_secret=%@&v=20141020&near=%@,TX&query=%@", clientID, clientSecret, city, query];
     queryString = [queryString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     NSURL *url = [NSURL URLWithString:[baseURLString stringByAppendingString:queryString]];
