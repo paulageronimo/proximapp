@@ -16,6 +16,7 @@
 		5C43631D26A7692900D7BA27 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631C26A7692900D7BA27 /* MapViewController.m */; };
 		5C43632126A76BC400D7BA27 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43632026A76BC400D7BA27 /* LocationsViewController.m */; };
 		5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43632326A76CD900D7BA27 /* SearchProductCell.m */; };
+		5C66AFC726AAAC040066CA10 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFC626AAAC040066CA10 /* Post.m */; };
 		5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */; };
 		5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F4226A943A9009063BA /* LocationCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
@@ -30,7 +31,6 @@
 		5CD4422B269F565C00C405BE /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4422A269F565C00C405BE /* SignupViewController.m */; };
 		5CD4422E26A0841000C405BE /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4422D26A0841000C405BE /* SettingsViewController.m */; };
 		5CD4423126A0CFE800C405BE /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4423026A0CFE800C405BE /* FeedViewController.m */; };
-		5CD4423426A0D12D00C405BE /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4423326A0D12D00C405BE /* Product.m */; };
 		5CD4423726A0E85700C405BE /* FeedProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4423626A0E85700C405BE /* FeedProductCell.m */; };
 		69363624ECA8DA2425E7CBEE /* libPods-proximapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 257E0B6DDFBA494C5B40DD90 /* libPods-proximapp.a */; };
 		69859DF0F16A909630642711 /* libPods-proximapp-proximappUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 169EF12DCDEC5C6EF395FB8E /* libPods-proximapp-proximappUITests.a */; };
@@ -77,6 +77,8 @@
 		5C43632026A76BC400D7BA27 /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
 		5C43632226A76CD900D7BA27 /* SearchProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchProductCell.h; sourceTree = "<group>"; };
 		5C43632326A76CD900D7BA27 /* SearchProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchProductCell.m; sourceTree = "<group>"; };
+		5C66AFC526AAAC040066CA10 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		5C66AFC626AAAC040066CA10 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
 		5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 		5CBD3F4126A943A9009063BA /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
@@ -105,8 +107,6 @@
 		5CD4422D26A0841000C405BE /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5CD4422F26A0CFE800C405BE /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		5CD4423026A0CFE800C405BE /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
-		5CD4423226A0D12D00C405BE /* Product.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		5CD4423326A0D12D00C405BE /* Product.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		5CD4423526A0E85700C405BE /* FeedProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedProductCell.h; sourceTree = "<group>"; };
 		5CD4423626A0E85700C405BE /* FeedProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedProductCell.m; sourceTree = "<group>"; };
 		688CB4D041A3092544E936F2 /* Pods-proximappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proximappTests.debug.xcconfig"; path = "Target Support Files/Pods-proximappTests/Pods-proximappTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,12 +276,12 @@
 		5CD44223269F553D00C405BE /* Object */ = {
 			isa = PBXGroup;
 			children = (
-				5CD4423226A0D12D00C405BE /* Product.h */,
-				5CD4423326A0D12D00C405BE /* Product.m */,
 				5C43631426A60AAA00D7BA27 /* User.h */,
 				5C43631526A60AAA00D7BA27 /* User.m */,
 				5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */,
 				5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */,
+				5C66AFC526AAAC040066CA10 /* Post.h */,
+				5C66AFC626AAAC040066CA10 /* Post.m */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -562,7 +562,6 @@
 				5CD4422B269F565C00C405BE /* SignupViewController.m in Sources */,
 				5C43630726A5FB1D00D7BA27 /* EditProfileViewController.m in Sources */,
 				5CD4423126A0CFE800C405BE /* FeedViewController.m in Sources */,
-				5CD4423426A0D12D00C405BE /* Product.m in Sources */,
 				5C43631A26A6142700D7BA27 /* UploadViewController.m in Sources */,
 				5C43631626A60AAA00D7BA27 /* User.m in Sources */,
 				5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */,
@@ -571,6 +570,7 @@
 				5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,
 				5CD44228269F557100C405BE /* LoginViewController.m in Sources */,
+				5C66AFC726AAAC040066CA10 /* Post.m in Sources */,
 				5CD4422E26A0841000C405BE /* SettingsViewController.m in Sources */,
 				5C43631D26A7692900D7BA27 /* MapViewController.m in Sources */,
 				5C43631026A607FC00D7BA27 /* otherProfileViewController.m in Sources */,
