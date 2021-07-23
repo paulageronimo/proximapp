@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void) changeUserPfp: (User *)user withPfp:(UIImage * _Nullable)pfp completion: (PFBooleanResultBlock _Nullable)completion;
 
-+(BOOL) changeProfileType: (User *)user completion: (PFBooleanResultBlock _Nullable)completion;
++(BOOL) changeProfileType:(NSNumber *)isOnOrOff forUser:(User *)user completion: (PFBooleanResultBlock _Nullable)completion;
 
 @end
 

@@ -28,9 +28,8 @@
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
-+(BOOL) changeProfileType: (User *)user completion: (PFBooleanResultBlock _Nullable)completion {
-    // ??
-    if (YES) {
++(BOOL) changeProfileType:(NSNumber *)isOnOrOff forUser:(User *)user completion: (PFBooleanResultBlock _Nullable)completion {
+    if (isOnOrOff) {
         user.isBusiness = (PFObject *)@YES;
         [user saveInBackgroundWithBlock:completion];
     } else {
