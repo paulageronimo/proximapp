@@ -17,6 +17,9 @@
 		5C43632126A76BC400D7BA27 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43632026A76BC400D7BA27 /* LocationsViewController.m */; };
 		5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43632326A76CD900D7BA27 /* SearchProductCell.m */; };
 		5C66AFC726AAAC040066CA10 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFC626AAAC040066CA10 /* Post.m */; };
+		5C66AFCB26AABF4D0066CA10 /* EditLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFCA26AABF4D0066CA10 /* EditLocationViewController.m */; };
+		5C66AFCE26AAD6520066CA10 /* BackgroundVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFCD26AAD6520066CA10 /* BackgroundVideo.m */; };
+		5C66AFD026AAD96B0066CA10 /* login-video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */; };
 		5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */; };
 		5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F4226A943A9009063BA /* LocationCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
@@ -79,6 +82,11 @@
 		5C43632326A76CD900D7BA27 /* SearchProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchProductCell.m; sourceTree = "<group>"; };
 		5C66AFC526AAAC040066CA10 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		5C66AFC626AAAC040066CA10 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		5C66AFC926AABF4D0066CA10 /* EditLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditLocationViewController.h; sourceTree = "<group>"; };
+		5C66AFCA26AABF4D0066CA10 /* EditLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditLocationViewController.m; sourceTree = "<group>"; };
+		5C66AFCC26AAD6520066CA10 /* BackgroundVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BackgroundVideo.h; path = proximapp/Object/BackgroundVideo.h; sourceTree = SOURCE_ROOT; };
+		5C66AFCD26AAD6520066CA10 /* BackgroundVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BackgroundVideo.m; path = proximapp/Object/BackgroundVideo.m; sourceTree = SOURCE_ROOT; };
+		5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "login-video.mp4"; sourceTree = "<group>"; };
 		5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
 		5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 		5CBD3F4126A943A9009063BA /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
@@ -153,8 +161,8 @@
 				5C43630926A5FD1600D7BA27 /* ProfileViewController.m */,
 				5CD4422C26A0841000C405BE /* SettingsViewController.h */,
 				5CD4422D26A0841000C405BE /* SettingsViewController.m */,
-				5C43630E26A607FC00D7BA27 /* otherProfileViewController.h */,
-				5C43630F26A607FC00D7BA27 /* otherProfileViewController.m */,
+				5C66AFC926AABF4D0066CA10 /* EditLocationViewController.h */,
+				5C66AFCA26AABF4D0066CA10 /* EditLocationViewController.m */,
 			);
 			path = "Profile Controllers";
 			sourceTree = "<group>";
@@ -166,6 +174,7 @@
 				5CD44227269F557100C405BE /* LoginViewController.m */,
 				5CD44229269F565C00C405BE /* SignupViewController.h */,
 				5CD4422A269F565C00C405BE /* SignupViewController.m */,
+				5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */,
 			);
 			path = "Authentication Controllers";
 			sourceTree = "<group>";
@@ -199,6 +208,15 @@
 				5C43632026A76BC400D7BA27 /* LocationsViewController.m */,
 			);
 			path = "Map Controller";
+			sourceTree = "<group>";
+		};
+		5C66AFC826AABF1B0066CA10 /* View Other Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C43630E26A607FC00D7BA27 /* otherProfileViewController.h */,
+				5C43630F26A607FC00D7BA27 /* otherProfileViewController.m */,
+			);
+			path = "View Other Controllers";
 			sourceTree = "<group>";
 		};
 		5CD441E1269CDB8000C405BE = {
@@ -276,6 +294,8 @@
 		5CD44223269F553D00C405BE /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				5C66AFCC26AAD6520066CA10 /* BackgroundVideo.h */,
+				5C66AFCD26AAD6520066CA10 /* BackgroundVideo.m */,
 				5C43631426A60AAA00D7BA27 /* User.h */,
 				5C43631526A60AAA00D7BA27 /* User.m */,
 				5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */,
@@ -289,6 +309,7 @@
 		5CD44225269F554E00C405BE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C66AFC826AABF1B0066CA10 /* View Other Controllers */,
 				5C43631E26A76BB300D7BA27 /* Map Controller */,
 				5C43631726A613F400D7BA27 /* Post Controller */,
 				5C43630C26A5FD7800D7BA27 /* Authentication Controllers */,
@@ -431,6 +452,7 @@
 				5CD441FD269CDB8200C405BE /* LaunchScreen.storyboard in Resources */,
 				5CD441FA269CDB8200C405BE /* Assets.xcassets in Resources */,
 				5CD441F8269CDB8100C405BE /* Main.storyboard in Resources */,
+				5C66AFD026AAD96B0066CA10 /* login-video.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +587,9 @@
 				5C43631A26A6142700D7BA27 /* UploadViewController.m in Sources */,
 				5C43631626A60AAA00D7BA27 /* User.m in Sources */,
 				5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */,
+				5C66AFCE26AAD6520066CA10 /* BackgroundVideo.m in Sources */,
 				5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */,
+				5C66AFCB26AABF4D0066CA10 /* EditLocationViewController.m in Sources */,
 				5CD44200269CDB8200C405BE /* main.m in Sources */,
 				5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,

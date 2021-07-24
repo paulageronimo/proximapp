@@ -6,12 +6,14 @@
 //
 #import "Parse/Parse.h"
 #import "SignupViewController.h"
+#import "BackgroundVideo.h"
 
 @interface SignupViewController ()
 @property(weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) BackgroundVideo *backgroundVideo;
 
 @end
 
@@ -19,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.backgroundVideo = [[BackgroundVideo alloc] initOnViewController:self withVideoURL:@"login-video.mp4"];
+    [self.backgroundVideo setUpBackground];
 }
 
 - (IBAction)onSignup:(id)sender {

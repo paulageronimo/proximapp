@@ -26,9 +26,9 @@
 - (void)setupView {
     PFUser *currentUser = [PFUser currentUser];
     
-    _usernameField.placeholder = currentUser.username;
-    _emailField.placeholder = currentUser.email;
-    _passwordField.placeholder = currentUser.password;
+    _usernameField.placeholder = currentUser[@"username"];
+    _emailField.placeholder = currentUser[@"email"];
+    _passwordField.placeholder = currentUser[@"password"];
     
     if (currentUser[@"isBusiness"]) {
         [_profileTypeSwitch setOn:YES];
@@ -37,13 +37,32 @@
 //TODO: leave it on/off respectively
 
 - (IBAction)onProfileSwitch:(id)sender {
+    PFUser *currentUser = [PFUser currentUser];
     if (_profileTypeSwitch.isOn) {
         _profileTypeLabel.text = @"Business";
         
-        [self switchProfileType: @YES];
+        currentUser[@"isBusiness"] = @YES;
+       
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+              if (succeeded) {
+                  [self alert:@"User profile type switched."];
+                  [self performSegueWithIdentifier:@"toSettingsSegue" sender:nil];
+              } else {
+                  [self alert:@"Unable to switch profile."];
+              }
+        }];
     } else {
         _profileTypeLabel.text = @"Personal";
-        [self switchProfileType: @NO];
+        currentUser[@"isBusiness"] = @NO;
+       
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+              if (succeeded) {
+                  [self alert:@"User profile type switched."];
+                  [self performSegueWithIdentifier:@"toSettingsSegue" sender:nil];
+              } else {
+                  [self alert:@"Unable to switch profile."];
+              }
+        }];
         
     }
 }
