@@ -1,0 +1,6 @@
+module Pods_proximapp_proximappUITests {
+  umbrella header "Pods-proximapp-proximappUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFFileObject *pfp;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) PFObject *isBusiness;
-
+@property (nonatomic, strong) PFGeoPoint *location;
+ 
 +(void) changeUserPfp: (User *)user withPfp:(UIImage * _Nullable)pfp completion: (PFBooleanResultBlock _Nullable)completion;
 
 +(BOOL) changeProfileType:(NSNumber *)isOnOrOff forUser:(User *)user completion: (PFBooleanResultBlock _Nullable)completion;

@@ -1,0 +1,6 @@
+module Pods_proximapp {
+  umbrella header "Pods-proximapp-umbrella.h"
+
+  export *
+  module * { export * }
+}

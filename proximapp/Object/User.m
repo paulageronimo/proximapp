@@ -11,6 +11,8 @@
 @dynamic pfp;
 @dynamic isBusiness;
 @dynamic name;
+@dynamic location;
+//@dynamic
 
 +(void) changeUserPfp:(User *)user withPfp:(UIImage *)pfp completion:(PFBooleanResultBlock)completion {
     user.pfp = [self getPFFileFromImage:pfp];

@@ -36,7 +36,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.productLabel.text = post[@"prodName"];
     self.priceLabel.text = post[@"price"];
-    self.timeLabel.text = [post[@"createdAt"] timeAgoSinceNow];
+    self.timeLabel.text = [post.createdAt timeAgoSinceNow];
     
     PFFileObject *img = post[@"image"];
     [img getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
