@@ -14,6 +14,7 @@ static BOOL hasBeenUsed = false;
 
 @implementation BackgroundVideo
 
+
 - (id)initOnViewController:(UIViewController *)onViewController withVideoURL:(NSString *)url {
     self = [super init];
     

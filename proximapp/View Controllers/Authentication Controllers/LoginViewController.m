@@ -11,12 +11,14 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _loginButton.layer.cornerRadius = 12.0;
 }
 
 - (IBAction)tapLogin:(id)sender {

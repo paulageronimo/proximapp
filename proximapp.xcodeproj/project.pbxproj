@@ -20,6 +20,7 @@
 		5C66AFCB26AABF4D0066CA10 /* EditLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFCA26AABF4D0066CA10 /* EditLocationViewController.m */; };
 		5C66AFCE26AAD6520066CA10 /* BackgroundVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFCD26AAD6520066CA10 /* BackgroundVideo.m */; };
 		5C66AFD026AAD96B0066CA10 /* login-video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */; };
+		5C66AFD326ACEA1D0066CA10 /* firstScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD226ACEA1D0066CA10 /* firstScreenViewController.m */; };
 		5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */; };
 		5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F4226A943A9009063BA /* LocationCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
@@ -87,6 +88,8 @@
 		5C66AFCC26AAD6520066CA10 /* BackgroundVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BackgroundVideo.h; path = proximapp/Object/BackgroundVideo.h; sourceTree = SOURCE_ROOT; };
 		5C66AFCD26AAD6520066CA10 /* BackgroundVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BackgroundVideo.m; path = proximapp/Object/BackgroundVideo.m; sourceTree = SOURCE_ROOT; };
 		5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "login-video.mp4"; sourceTree = "<group>"; };
+		5C66AFD126ACEA1D0066CA10 /* firstScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firstScreenViewController.h; sourceTree = "<group>"; };
+		5C66AFD226ACEA1D0066CA10 /* firstScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = firstScreenViewController.m; sourceTree = "<group>"; };
 		5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
 		5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 		5CBD3F4126A943A9009063BA /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 				5CD44229269F565C00C405BE /* SignupViewController.h */,
 				5CD4422A269F565C00C405BE /* SignupViewController.m */,
 				5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */,
+				5C66AFD126ACEA1D0066CA10 /* firstScreenViewController.h */,
+				5C66AFD226ACEA1D0066CA10 /* firstScreenViewController.m */,
 			);
 			path = "Authentication Controllers";
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */,
 				5C66AFCB26AABF4D0066CA10 /* EditLocationViewController.m in Sources */,
 				5CD44200269CDB8200C405BE /* main.m in Sources */,
+				5C66AFD326ACEA1D0066CA10 /* firstScreenViewController.m in Sources */,
 				5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,
 				5CD44228269F557100C405BE /* LoginViewController.m in Sources */,
