@@ -31,6 +31,8 @@
 -(void) setupView {
     _addProductButton.layer.cornerRadius = 12.0;
     _businessBadge.layer.cornerRadius = 12.0;
+    _pfp.layer.cornerRadius = 110.0;
+    
    PFUser *currentUser = [PFUser currentUser];
     
     if ([currentUser[@"isBusiness"] isEqual:@YES]) {

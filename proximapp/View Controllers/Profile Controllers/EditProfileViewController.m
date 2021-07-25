@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIImageView *profilepicView;
 
 @end
 
@@ -29,7 +30,7 @@
     _usernameField.placeholder = currentUser[@"username"];
     _emailField.placeholder = currentUser[@"email"];
     _passwordField.placeholder = currentUser[@"password"];
-    
+    _profilepicView.layer.cornerRadius = 75.0;
     if (currentUser[@"isBusiness"]) {
         [_profileTypeSwitch setOn:YES];
     } else {[_profileTypeSwitch setOn:NO];}
