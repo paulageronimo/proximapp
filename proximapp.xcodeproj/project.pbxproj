@@ -10,7 +10,6 @@
 		5C43630726A5FB1D00D7BA27 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43630626A5FB1D00D7BA27 /* EditProfileViewController.m */; };
 		5C43630A26A5FD1600D7BA27 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43630926A5FD1600D7BA27 /* ProfileViewController.m */; };
 		5C43631026A607FC00D7BA27 /* otherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43630F26A607FC00D7BA27 /* otherProfileViewController.m */; };
-		5C43631326A6080E00D7BA27 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631226A6080E00D7BA27 /* DetailsViewController.m */; };
 		5C43631626A60AAA00D7BA27 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631526A60AAA00D7BA27 /* User.m */; };
 		5C43631A26A6142700D7BA27 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631926A6142700D7BA27 /* UploadViewController.m */; };
 		5C43631D26A7692900D7BA27 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43631C26A7692900D7BA27 /* MapViewController.m */; };
@@ -21,6 +20,7 @@
 		5C66AFCE26AAD6520066CA10 /* BackgroundVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFCD26AAD6520066CA10 /* BackgroundVideo.m */; };
 		5C66AFD026AAD96B0066CA10 /* login-video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */; };
 		5C66AFD326ACEA1D0066CA10 /* firstScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD226ACEA1D0066CA10 /* firstScreenViewController.m */; };
+		5C66AFD626AD15100066CA10 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD526AD15100066CA10 /* DetailsViewController.m */; };
 		5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */; };
 		5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F4226A943A9009063BA /* LocationCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
@@ -69,8 +69,6 @@
 		5C43630926A5FD1600D7BA27 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		5C43630E26A607FC00D7BA27 /* otherProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = otherProfileViewController.h; sourceTree = "<group>"; };
 		5C43630F26A607FC00D7BA27 /* otherProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = otherProfileViewController.m; sourceTree = "<group>"; };
-		5C43631126A6080E00D7BA27 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		5C43631226A6080E00D7BA27 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5C43631426A60AAA00D7BA27 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5C43631526A60AAA00D7BA27 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5C43631826A6142700D7BA27 /* UploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
@@ -90,6 +88,8 @@
 		5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "login-video.mp4"; sourceTree = "<group>"; };
 		5C66AFD126ACEA1D0066CA10 /* firstScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firstScreenViewController.h; sourceTree = "<group>"; };
 		5C66AFD226ACEA1D0066CA10 /* firstScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = firstScreenViewController.m; sourceTree = "<group>"; };
+		5C66AFD426AD15100066CA10 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		5C66AFD526AD15100066CA10 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
 		5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 		5CBD3F4126A943A9009063BA /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
@@ -189,6 +189,8 @@
 			children = (
 				5CD4422F26A0CFE800C405BE /* FeedViewController.h */,
 				5CD4423026A0CFE800C405BE /* FeedViewController.m */,
+				5C66AFD426AD15100066CA10 /* DetailsViewController.h */,
+				5C66AFD526AD15100066CA10 /* DetailsViewController.m */,
 			);
 			path = "Feed Controllers";
 			sourceTree = "<group>";
@@ -196,8 +198,6 @@
 		5C43631726A613F400D7BA27 /* Post Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5C43631126A6080E00D7BA27 /* DetailsViewController.h */,
-				5C43631226A6080E00D7BA27 /* DetailsViewController.m */,
 				5C43631826A6142700D7BA27 /* UploadViewController.h */,
 				5C43631926A6142700D7BA27 /* UploadViewController.m */,
 			);
@@ -600,11 +600,11 @@
 				5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,
 				5CD44228269F557100C405BE /* LoginViewController.m in Sources */,
+				5C66AFD626AD15100066CA10 /* DetailsViewController.m in Sources */,
 				5C66AFC726AAAC040066CA10 /* Post.m in Sources */,
 				5CD4422E26A0841000C405BE /* SettingsViewController.m in Sources */,
 				5C43631D26A7692900D7BA27 /* MapViewController.m in Sources */,
 				5C43631026A607FC00D7BA27 /* otherProfileViewController.m in Sources */,
-				5C43631326A6080E00D7BA27 /* DetailsViewController.m in Sources */,
 				5C43630A26A5FD1600D7BA27 /* ProfileViewController.m in Sources */,
 				5C43632126A76BC400D7BA27 /* LocationsViewController.m in Sources */,
 				5CD4423726A0E85700C405BE /* FeedProductCell.m in Sources */,

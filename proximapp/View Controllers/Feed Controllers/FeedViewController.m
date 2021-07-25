@@ -12,11 +12,11 @@
 #import "FeedProductCell.h"
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
+#import "DetailsViewController.h"
 
 @interface FeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-//@property (nonatomic, assign) NSInteger countProds;
 @property (strong, nonatomic) NSMutableArray *posts;
 
 @end
@@ -27,7 +27,9 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
+    self.tableView.rowHeight = 442;
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        
     [self fetchPosts];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
@@ -54,12 +56,20 @@
     }];
 }
 
-//#pragma mark - Navigation
-//
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSString *segId = [segue identifier];
+    if ([segId isEqualToString:@"DetailsViewController"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.row];
+        DetailsViewController *detailsVC = [segue destinationViewController];
+        //TODO: uncomment, assign post to detailsVC.post when finished creating details view controller features
+    } else {
+        NSLog(@"Segue not recognized");
+    }
+}
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     FeedProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FeedProductCell" forIndexPath:indexPath];

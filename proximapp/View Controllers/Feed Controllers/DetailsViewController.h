@@ -2,7 +2,7 @@
 //  DetailsViewController.h
 //  proximapp
 //
-//  Created by Paula Leticia Geronimo on 7/19/21.
+//  Created by Paula Leticia Geronimo on 7/24/21.
 //
 
 #import <UIKit/UIKit.h>
