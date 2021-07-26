@@ -1,6 +1,4 @@
-## Welcome to Proxi-Mapp
-
-# Proxi-Mapp
+# Welcome to Proxi-Mapp
 
 ## Overview
 ### Description
@@ -21,26 +19,21 @@ Prox-Mapp: bridging the gap between small businesses and their community. This a
 
 **Required Must-have Stories**
 
-* User can create a new account (business/personal account)
-* User can login
-* Business accounts can post a new photo to their feed (default is their current or selected location, if no default location is chosen, it will give them the general list of products 
-* Users can follow business pages 
-* News feed of posts of their desired location+radius
-* Can search up products, will be given a list of products of best keyword match from businesses in their location+radius *will be provided simliar items outside of their location*
-* User can follow/unfollow another user
-* User can view a feed of photosUser can see notifications when their photo is liked or they are followed
-* User can see their profile page with their photos
-* User can see a list of their followers
-* User can see a list of their following
-* User can view other business profiles and see their photo feed
+[x] User can create a new account (business/personal account)
+[x] User can login
+[x] Business accounts can post a new photo to their feed (default is their current or selected location)
+[x] News feed of posts of (desired location+radius)
+[] Can search up products, will be given a list of products of best keyword match from businesses in their location+radius *will be provided simliar items outside of their location*
+[] User can view other business profiles 
+[] Users can see business profile's product feed
+[] User can view a feed of photosUser can see notifications when their photo is
+[] User can see notifications of new items posted near them
 
 **Optional Nice-to-have Stories**
-
-* User can see notifications when their photo is liked or they are followed
+* Users can follow business pages
+* User can follow/unfollow another user
 * User can see their profile page with their photos
-* User can see a list of their followers
-* User can see a list of their following
-* User can scan an item instead of manually searching for it
+* User can see a list of their followers & following
 
 ### 2. Screen Archetypes
 
