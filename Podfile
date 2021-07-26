@@ -9,6 +9,8 @@ target 'proximapp' do
   pod 'Parse'
   pod 'AFNetworking'
   pod 'DateTools'
+  pod 'JHChainableAnimations', '~> 3.0.1'
+
   target 'proximappTests' do
     inherit! :search_paths
     # Pods for testing
