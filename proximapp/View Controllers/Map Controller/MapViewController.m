@@ -8,10 +8,13 @@
 #import "LocationsViewController.h"
 #import "MapViewController.h"
 #import "PhotoAnnotation.h"
+#import "Parse/Parse.h"
+#import "User.h"
 
 @interface MapViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) UIImage *selectedImage;
+@property (weak, nonatomic) IBOutlet UIButton *onNewPostButton;
 
 @end
 
@@ -21,11 +24,22 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     [self setupView];
+    [self setupMapView];
 }
 - (void)setupView {
-    //MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
-    //TODO: Get coordinates directly from current user info instead of manual input
-    MKCoordinateRegion lrdRegion =MKCoordinateRegionMake(CLLocationCoordinate2DMake(27.5036, -99.5076), MKCoordinateSpanMake(0.1, 0.1));
+    PFUser *currentUser = [PFUser currentUser];
+    if ([currentUser[@"isBusiness"] isEqual:@YES]) {
+        _onNewPostButton.hidden = NO;
+    } else {
+        _onNewPostButton.hidden = YES;
+    }
+}
+
+- (void)setupMapView {
+    PFUser *currentUser = [PFUser currentUser];
+    PFGeoPoint *location = currentUser[@"location"];
+    
+    MKCoordinateRegion lrdRegion =MKCoordinateRegionMake(CLLocationCoordinate2DMake(location.latitude, location.longitude), MKCoordinateSpanMake(0.1, 0.1));
     [self.mapView setRegion:lrdRegion animated:true];
 }
 
@@ -49,13 +63,27 @@
     annotationView.image = photoAnnotationItem.photo;
     return annotationView;
  }
+
+- (IBAction)onNewPostButton:(id)sender {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+
+    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
-    //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     self.selectedImage = info[UIImagePickerControllerEditedImage];
 
-    // Do something with the images (based on your use case)
-    
     [self dismissViewControllerAnimated:YES completion:^{
         [self performSegueWithIdentifier:@"tagSegue" sender:nil];
     }];
