@@ -21,6 +21,7 @@
 		5C66AFD026AAD96B0066CA10 /* login-video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5C66AFCF26AAD96B0066CA10 /* login-video.mp4 */; };
 		5C66AFD326ACEA1D0066CA10 /* firstScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD226ACEA1D0066CA10 /* firstScreenViewController.m */; };
 		5C66AFD626AD15100066CA10 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD526AD15100066CA10 /* DetailsViewController.m */; };
+		5C66AFD926AD319A0066CA10 /* SearchProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */; };
 		5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */; };
 		5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F4226A943A9009063BA /* LocationCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
@@ -90,6 +91,8 @@
 		5C66AFD226ACEA1D0066CA10 /* firstScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = firstScreenViewController.m; sourceTree = "<group>"; };
 		5C66AFD426AD15100066CA10 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		5C66AFD526AD15100066CA10 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		5C66AFD726AD319A0066CA10 /* SearchProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchProductViewController.h; sourceTree = "<group>"; };
+		5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchProductViewController.m; sourceTree = "<group>"; };
 		5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
 		5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 		5CBD3F4126A943A9009063BA /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
@@ -189,8 +192,6 @@
 			children = (
 				5CD4422F26A0CFE800C405BE /* FeedViewController.h */,
 				5CD4423026A0CFE800C405BE /* FeedViewController.m */,
-				5C66AFD426AD15100066CA10 /* DetailsViewController.h */,
-				5C66AFD526AD15100066CA10 /* DetailsViewController.m */,
 			);
 			path = "Feed Controllers";
 			sourceTree = "<group>";
@@ -215,13 +216,17 @@
 			path = "Map Controller";
 			sourceTree = "<group>";
 		};
-		5C66AFC826AABF1B0066CA10 /* View Other Controllers */ = {
+		5C66AFC826AABF1B0066CA10 /* User Viewing View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C66AFD426AD15100066CA10 /* DetailsViewController.h */,
+				5C66AFD526AD15100066CA10 /* DetailsViewController.m */,
 				5C43630E26A607FC00D7BA27 /* otherProfileViewController.h */,
 				5C43630F26A607FC00D7BA27 /* otherProfileViewController.m */,
+				5C66AFD726AD319A0066CA10 /* SearchProductViewController.h */,
+				5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */,
 			);
-			path = "View Other Controllers";
+			path = "User Viewing View Controllers";
 			sourceTree = "<group>";
 		};
 		5CD441E1269CDB8000C405BE = {
@@ -314,7 +319,7 @@
 		5CD44225269F554E00C405BE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5C66AFC826AABF1B0066CA10 /* View Other Controllers */,
+				5C66AFC826AABF1B0066CA10 /* User Viewing View Controllers */,
 				5C43631E26A76BB300D7BA27 /* Map Controller */,
 				5C43631726A613F400D7BA27 /* Post Controller */,
 				5C43630C26A5FD7800D7BA27 /* Authentication Controllers */,
@@ -591,6 +596,7 @@
 				5CD4423126A0CFE800C405BE /* FeedViewController.m in Sources */,
 				5C43631A26A6142700D7BA27 /* UploadViewController.m in Sources */,
 				5C43631626A60AAA00D7BA27 /* User.m in Sources */,
+				5C66AFD926AD319A0066CA10 /* SearchProductViewController.m in Sources */,
 				5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */,
 				5C66AFCE26AAD6520066CA10 /* BackgroundVideo.m in Sources */,
 				5C43632426A76CD900D7BA27 /* SearchProductCell.m in Sources */,

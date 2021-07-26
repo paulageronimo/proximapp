@@ -35,8 +35,11 @@
     [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
+- (void)setView {
+    
+}
 
--(void)fetchPosts {
+- (void)fetchPosts {
     PFQuery *postQuery = [PFQuery queryWithClassName:@"Post"];
     //[query whereKey:@"likesCount" greaterThan:@100];
     [postQuery orderByDescending:@"createdAt"];
@@ -65,7 +68,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Post *post = self.posts[indexPath.row];
         DetailsViewController *detailsVC = [segue destinationViewController];
-        //TODO: uncomment, assign post to detailsVC.post when finished creating details view controller features
+        detailsVC.post = post;
     } else {
         NSLog(@"Segue not recognized");
     }

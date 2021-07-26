@@ -17,21 +17,18 @@
     [self setupView];
 }
 - (void)setupView {
-    _postImageView.layer.cornerRadius = 24.0;
-    _priceLabel.layer.cornerRadius = 24.0;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
 
-- (void)setPost:(Post *)post { // custom setter so PostCell can be reused
+- (void)setPost:(Post *)post {
     NSLog(@"Got into product.");
     post = post;
     //TODO: upvotes, likes, support button
     
-    // TODO: time stamp
-    //self.timeLabel.text = product[@""];
     // TODO: dynamic profile picture
     
 //    NSLog(@"Setting post! Post = %@", post);
@@ -49,6 +46,7 @@
             [self.postImageView setImage:postImg];
         }
     }];
+    
     NSLog(@"Successfully set product.");
 }
 
