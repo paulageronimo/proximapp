@@ -1,6 +1,4 @@
-## Welcome to Proxi-Mapp
-
-# Proxi-Mapp
+# Welcome to Proxi-Mapp
 
 ## Overview
 ### Description
