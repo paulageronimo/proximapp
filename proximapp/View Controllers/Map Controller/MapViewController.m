@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
+    [self setupView];
+}
+- (void)setupView {
     //MKCoordinateRegion sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667), MKCoordinateSpanMake(0.1, 0.1));
     //TODO: Get coordinates directly from current user info instead of manual input
     MKCoordinateRegion lrdRegion =MKCoordinateRegionMake(CLLocationCoordinate2DMake(27.5036, -99.5076), MKCoordinateSpanMake(0.1, 0.1));
@@ -66,6 +69,23 @@
     point.photo = [self resizeImage:self.selectedImage withSize:CGSizeMake(50.0, 50.0)];
     [self.mapView addAnnotation:point];
 }
+
+- (IBAction)setMap:(id)sender {
+    switch(((UISegmentedControl *)sender).selectedSegmentIndex) {
+        case 0:
+            _mapView.mapType = MKMapTypeStandard;
+            break;
+        case 1:
+            _mapView.mapType = MKMapTypeSatellite;
+            break;
+        case 2:
+            _mapView.mapType = MKMapTypeHybrid;
+            break;
+        default:
+            break;
+    }
+}
+
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
