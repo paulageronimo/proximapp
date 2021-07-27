@@ -63,6 +63,7 @@
     
 }
 - (void)setupMapView {
+    [self.mapView removeAnnotations:_mapView.annotations];
     PFGeoPoint *prodLocation = self.post.author[@"location"];
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
 

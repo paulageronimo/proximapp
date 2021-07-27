@@ -27,9 +27,9 @@
 - (void)setupView {
     PFUser *currentUser = [PFUser currentUser];
     
-    _usernameField.placeholder = currentUser[@"username"];
-    _emailField.placeholder = currentUser[@"email"];
-    _passwordField.placeholder = currentUser[@"password"];
+    _usernameField.placeholder = currentUser.username;
+    _emailField.placeholder = currentUser.email;
+    _passwordField.placeholder = @"●";
     _profilepicView.layer.cornerRadius = 75.0;
     if (currentUser[@"isBusiness"]) {
         [_profileTypeSwitch setOn:YES];
