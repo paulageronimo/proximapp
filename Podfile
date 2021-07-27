@@ -10,7 +10,7 @@ target 'proximapp' do
   pod 'AFNetworking'
   pod 'DateTools'
   pod 'JHChainableAnimations', '~> 3.0.1'
-
+  pod 'IQKeyboardManager'
   target 'proximappTests' do
     inherit! :search_paths
     # Pods for testing

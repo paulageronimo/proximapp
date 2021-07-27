@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.1)
   - DateTools (2.0.0)
+  - IQKeyboardManager (6.5.6)
   - JHChainableAnimations (3.0.1)
   - Parse (1.19.2):
     - Parse/Core (= 1.19.2)
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - DateTools
+  - IQKeyboardManager
   - JHChainableAnimations (~> 3.0.1)
   - Parse
 
@@ -33,6 +35,7 @@ SPEC REPOS:
     - AFNetworking
     - Bolts
     - DateTools
+    - IQKeyboardManager
     - JHChainableAnimations
     - Parse
 
@@ -40,9 +43,10 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   JHChainableAnimations: 0237489ed063f0ec5b351f5c7bb26c1891517074
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
 
-PODFILE CHECKSUM: 9fec43a83ea6d0047ff061b1cdd6ed422a681224
+PODFILE CHECKSUM: 5f977b1bfbabd1674666494a0547a4614e8dfc3f
 
 COCOAPODS: 1.10.1
