@@ -6,7 +6,7 @@
 //
 
 #import "LocationsViewController.h"
-#import "SearchProductCell.h"
+#import "LocationCell.h"
 //#import "PhotoMapViewController.h"
 
 static NSString * const clientID = @"QA1L0Z0ZNA2QVEEDHFPQWK0I5F1DE3GPLSNW4BZEBGJXUCFL";
@@ -42,7 +42,7 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SearchProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
+    LocationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
     
     NSDictionary *result = self.results[indexPath.row];
     [cell updateWithLocation:result];
