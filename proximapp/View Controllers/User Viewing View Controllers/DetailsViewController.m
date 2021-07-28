@@ -13,16 +13,12 @@
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pictureView;
-@property (weak, nonatomic) IBOutlet UILabel *productLabel; //prodName
-//@property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
-//@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UILabel *productLabel;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
-@property (weak, nonatomic) IBOutlet UIView *cardItemView;
 @property (weak, nonatomic) IBOutlet UIButton *visitButton;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *logoView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
 
 @end
 
@@ -35,19 +31,17 @@
 }
 
 - (void)setupView {
-    _cardItemView.layer.cornerRadius = 12.0;
     _productLabel.layer.cornerRadius = 12.0;
     _priceLabel.layer.cornerRadius = 12.0;
     _logoView.layer.cornerRadius = 12.0;
     _visitButton.layer.cornerRadius = 12.0;
     _pictureView.layer.cornerRadius = 12.0;
-    //_mapView.mapType = MKMapTypeHybrid;
     
     self.navBar.title = [@"Post by @" stringByAppendingString:self.post.author.username];
 
     self.productLabel.text = self.post.prodName;
     self.priceLabel.text = self.post.price;
-    // setup image
+
     PFFileObject *img = self.post.image;
     [img getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (error) {
@@ -57,23 +51,16 @@
             [self.pictureView setImage:postImg];
         }
     }];
-    //TODO: set up user's logo
-//    PFUser *currentUser = self.post.author;
-//    self.logoView = currentUser.pfp;
-    
+    self.logoView = self.post.author[@"pfp"];
 }
+     
 - (void)setupMapView {
-    [self.mapView removeAnnotations:_mapView.annotations];
     PFGeoPoint *prodLocation = self.post.author[@"location"];
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
 
-    NSLog(@"Custom Annotations start.");
-    // Custom Annotations.
     CLLocationCoordinate2D productCoordinates = CLLocationCoordinate2DMake(prodLocation.latitude, prodLocation.longitude);
-    //PFUser *currentUser = [PFUser currentUser];
-    //PFGeoPoint *userLocation = currentUser[@"location"];
-    //CLLocationCoordinate2D userCoordinates = CLLocationCoordinate2DMake(userLocation.latitude, userLocation.longitude);
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
+
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.025, 0.025);
     MKCoordinateRegion region = {productCoordinates, span};
     
     [self.mapView setRegion:region];
@@ -81,19 +68,14 @@
     
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
     point.coordinate = productCoordinates;
-//    MKCoordinateRegion region = {{0.0,0.0}, {0.0,0.0}};
-//    region.center.latitude = ;
-//    region.center.longitude = ;
-//    MapPin *pinned = [[MapPin] init];
     point.title = self.post.prodName;
     point.subtitle = self.post.price;
-//    pinned.coordinate= region.center;
-//    [_mapView addAnnotation:pinned];
-    [self.mapView addAnnotation:point];
+    //point.coordinate= region.center;
+    //[_mapView addAnnotation:point];
+    [_mapView addAnnotation:point];
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-{
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if (annotation == mapView.userLocation) return nil;
 
     static NSString* Identifier = @"PinAnnotationIdentifier";
@@ -101,8 +83,9 @@
     pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:Identifier];
 
     if (pinView == nil) {
-        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
-                                                  reuseIdentifier:Identifier];
+        pinView = [[MKPinAnnotationView alloc]
+                   initWithAnnotation:annotation
+                   reuseIdentifier:Identifier];
         pinView.canShowCallout = YES;
         return pinView;
     }
@@ -112,12 +95,4 @@
 
 // TODO: onBack, clear the pins marked :)
 
-//- (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
-//    [self.navigationController popViewControllerAnimated:true];
-//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
-//    PhotoAnnotation *point = [PhotoAnnotation new];
-//    point.coordinate = coordinate;
-//    point.photo = [self resizeImage:self.selectedImage withSize:CGSizeMake(50.0, 50.0)];
-//    [self.mapView addAnnotation:point];
-//}
 @end

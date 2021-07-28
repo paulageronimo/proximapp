@@ -13,13 +13,11 @@
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *addProductButton;
-//@property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UIImageView *pfp;
 @property (weak, nonatomic) IBOutlet UIView *businessView;
 @property (weak, nonatomic) IBOutlet UILabel *businessBadge;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
-//@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -28,8 +26,6 @@
 -(void) viewDidLoad {
     [super viewDidLoad];
     [self setupView];
-    //self.refreshControl = [[UIRefreshControl alloc] init];
-    //[self.refreshControl addTarget:self action:@selector(setupView) forControlEvents:UIControlEventValueChanged];
 }
 
 //TODO: add a refresh to view
@@ -42,7 +38,7 @@
     _businessBadge.layer.cornerRadius = 12.0;
     _pfp.layer.cornerRadius = 110.0;
     
-    if ([currentUser[@"isBusiness"] isEqual:@YES]) {
+    if ([currentUser[@"isBusiness"] boolValue]) {
        _businessView.hidden= NO;
    } else {
        _businessView.hidden = YES;
@@ -59,7 +55,6 @@
             self.pfp.layer.cornerRadius = self.pfp.frame.size.height/2;
         }
     }];
-    //[self.refreshControl endRefreshing];
 }
 
 @end
