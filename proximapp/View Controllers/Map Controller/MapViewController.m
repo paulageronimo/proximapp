@@ -26,6 +26,7 @@
     [self setupView];
     [self setupMapView];
 }
+
 - (void)setupView {
     PFUser *currentUser = [PFUser currentUser];
     if ([currentUser[@"isBusiness"] isEqual:@YES]) {
@@ -39,8 +40,8 @@
     PFUser *currentUser = [PFUser currentUser];
     PFGeoPoint *location = currentUser[@"location"];
     
-    MKCoordinateRegion lrdRegion =MKCoordinateRegionMake(CLLocationCoordinate2DMake(location.latitude, location.longitude), MKCoordinateSpanMake(0.1, 0.1));
-    [self.mapView setRegion:lrdRegion animated:true];
+    MKCoordinateRegion region =MKCoordinateRegionMake(CLLocationCoordinate2DMake(location.latitude, location.longitude), MKCoordinateSpanMake(0.025, 0.025));
+    [self.mapView setRegion:region animated:true];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,7 +75,6 @@
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     else {
-        NSLog(@"Camera 🚫 available so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
 
@@ -113,7 +113,6 @@
             break;
     }
 }
-
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
