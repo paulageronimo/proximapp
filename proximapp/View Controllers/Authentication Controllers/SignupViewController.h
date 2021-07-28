@@ -6,11 +6,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SignupViewController : UIViewController
--(void) alert: (NSString *)errorMessage;
+@interface SignupViewController : UIViewController <CLLocationManagerDelegate> {
+    CLLocationManager *locationManager;
+}
+
+- (void) alert: (NSString *)errorMessage;
+
 @end
 
 NS_ASSUME_NONNULL_END
