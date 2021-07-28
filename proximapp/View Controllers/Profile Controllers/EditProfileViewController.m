@@ -11,7 +11,7 @@
 #import "ProfileViewController.h"
 
 @interface EditProfileViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIImageView *profilepicView;
@@ -22,32 +22,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupView];
 }
 
 - (void)setupView {
     PFUser *currentUser = [PFUser currentUser];
     
-    _usernameField.placeholder = currentUser.username;
+    _nameField.placeholder = currentUser[@"name"];
     _emailField.placeholder = currentUser.email;
-    _passwordField.placeholder = @"●";
+    _passwordField.placeholder = @"●●●●●●●●●●●●●";
     _profilepicView.layer.cornerRadius = 75.0;
-    if (currentUser[@"isBusiness"]) {
+    
+    if ([currentUser[@"isBusiness"] isEqual:@YES]) {
+        _profileTypeLabel.text = @"Business";
         [_profileTypeSwitch setOn:YES];
-    } else {[_profileTypeSwitch setOn:NO];}
+    } else {
+        _profileTypeLabel.text = @"Personal";
+        [_profileTypeSwitch setOn:NO];
+    }
 }
-//TODO: leave it on/off respectively
 
 - (IBAction)onProfileSwitch:(id)sender {
     PFUser *currentUser = [PFUser currentUser];
     if (_profileTypeSwitch.isOn) {
         _profileTypeLabel.text = @"Business";
-        
         currentUser[@"isBusiness"] = @YES;
        
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
               if (succeeded) {
                   [self alert:@"User profile type switched."];
-                  [self performSegueWithIdentifier:@"toSettingsSegue" sender:nil];
               } else {
                   [self alert:@"Unable to switch profile."];
               }
@@ -59,12 +62,10 @@
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
               if (succeeded) {
                   [self alert:@"User profile type switched."];
-                  [self performSegueWithIdentifier:@"toSettingsSegue" sender:nil];
               } else {
                   [self alert:@"Unable to switch profile."];
               }
         }];
-        
     }
 }
 
@@ -82,7 +83,7 @@
     }];
 }
 
-//TODO: implement save button
+//TODO: implement save button ??
 
 - (void)alert: (NSString *)errorMessage{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification"

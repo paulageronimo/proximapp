@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *productNameField;
 @property (weak, nonatomic) IBOutlet UITextField *priceField;
 @property (weak, nonatomic) IBOutlet UISwitch *isAvailable;
-@property (weak, nonatomic) IBOutlet UITextField *keywordFiled;
+@property (weak, nonatomic) IBOutlet UITextField *keywordField;
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
 @property (strong, nonatomic) UIImage *image;
@@ -34,21 +34,14 @@
     self.image = nil;
     self.productNameField.delegate = self;
     self.priceField.delegate = self;
-    self.keywordFiled.delegate = self;
-    
-    [self.isAvailable addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+    self.keywordField.delegate = self;
     
     //_postProduct.layer.cornerRadius = 12.0;
     _backgroundView.layer.cornerRadius = 12.0;
 }
 
-- (void)switchChanged:(UISwitch *)sender {
-   BOOL value = sender.on;
-}
-
 //TODO: make this code less messy :/
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
-//        UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     self.image = editedImage;
@@ -59,18 +52,42 @@
 
 - (IBAction)sharePost:(id)sender {
     if (self.image == nil) {
-        NSLog(@"Image not set!");
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot create post" message:@"An image has not been selected." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
-        [alert addAction:dismissAction];
-        [self presentViewController:alert animated:YES completion:^{}];
+        [self alert:@"An image has not been selected."];
     } else {
-        CGSize size = CGSizeMake(400, 400);
-        UIImage *image = [self resizeImage:self.image withSize:size];
-        //[Post postUserImage:image withCaption:prodName withCompletion:nil];
-        [Post postUserImage:image withCaption:self.productNameField.text withCompletion:nil];
-        [self exitCreate];
+        [self createPost];
     }
+}
+
+- (void)createPost {
+    CGSize size = CGSizeMake(400, 400);
+    UIImage *image = [self resizeImage:self.image withSize:size];
+    
+    Post *newPost = [Post new];
+    
+    newPost.image = [Post getPFFileFromImage:image];
+    PFUser *currentUser =[PFUser currentUser];
+    newPost.author = currentUser;
+    newPost.logo = currentUser[@"pfp"];
+    newPost.prodName = _productNameField.text;
+    newPost.price = _priceField.text;
+    newPost.availability = (PFObject *)@YES;
+    newPost.keywords = _keywordField.text;
+
+    if (_isAvailable.isOn) {
+        newPost[@"isAvailable"] = @YES;
+    } else {
+        newPost[@"isAvailable"] = @NO;
+    }
+    //currentPost[@"keywords"] = ;
+    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+      if (succeeded) {
+          // TODO: alert that notifies you have posted? send to notification array?
+      } else {
+          [self alert:@"Unable to be posted."];
+      }
+    }];
+    
+    [self exitCreate];
 }
 
 - (void)exitCreate {
@@ -82,22 +99,7 @@
     sceneDelegate.window.rootViewController = HomeViewController;
 }
 
-- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
-    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
-    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
-    resizeImageView.image = image;
-    
-    UIGraphicsBeginImageContext(size);
-    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
 - (IBAction)imageSelected:(id)sender {
-    NSLog(@"image tapped!");
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
@@ -119,12 +121,30 @@
         [sourcePicker addAction:cancelAction];
         [self presentViewController:sourcePicker animated:YES completion:^{}];
     } else {
-        //NSLog(@"Camera unavailable so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePickerVC animated:YES completion:nil];
-        //[self performSegueWithIdentifier:@"postSegue" sender:nil];
     }
     
 }
 
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+- (void)alert: (NSString *)errorMessage {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+    [alert addAction:dismissAction];
+    [self presentViewController:alert animated:YES completion:^{}];
+}
 @end

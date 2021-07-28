@@ -6,6 +6,8 @@
 //
 
 #import "ProfileViewController.h"
+#import "AppDelegate.h"
+#import "SceneDelegate.h"
 #import "Parse/Parse.h"
 #import "User.h"
 
@@ -16,7 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *pfp;
 @property (weak, nonatomic) IBOutlet UIView *businessView;
 @property (weak, nonatomic) IBOutlet UILabel *businessBadge;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
+//@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -25,22 +28,26 @@
 -(void) viewDidLoad {
     [super viewDidLoad];
     [self setupView];
+    //self.refreshControl = [[UIRefreshControl alloc] init];
+    //[self.refreshControl addTarget:self action:@selector(setupView) forControlEvents:UIControlEventValueChanged];
 }
 
 //TODO: add a refresh to view
 -(void) setupView {
+    PFUser *currentUser = [PFUser currentUser];
+    
+    self.navBar.title = [@"@" stringByAppendingString:currentUser.username];
+
     _addProductButton.layer.cornerRadius = 12.0;
     _businessBadge.layer.cornerRadius = 12.0;
     _pfp.layer.cornerRadius = 110.0;
-    
-   PFUser *currentUser = [PFUser currentUser];
     
     if ([currentUser[@"isBusiness"] isEqual:@YES]) {
        _businessView.hidden= NO;
    } else {
        _businessView.hidden = YES;
    }
-    _username.text = [NSString stringWithFormat:@"@%@", currentUser.username];
+    _username.text = currentUser[@"name"];
     //_name.text = currentUser.name;
     PFFileObject *pfp = currentUser[@"pfp"];
     [pfp getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -52,6 +59,7 @@
             self.pfp.layer.cornerRadius = self.pfp.frame.size.height/2;
         }
     }];
+    //[self.refreshControl endRefreshing];
 }
 
 @end
