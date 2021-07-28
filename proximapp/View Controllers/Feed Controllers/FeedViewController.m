@@ -25,18 +25,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    self.tableView.rowHeight = 442;
-        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        
+    [self setView];
+    
     [self fetchPosts];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
+
 - (void)setView {
-    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.rowHeight = 400;
 }
 
 - (void)fetchPosts {
@@ -49,7 +50,6 @@
 
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> *posts, NSError* _Nullable error) {
         if (posts!= nil) {
-            //self.posts = [Post copy];
             self.posts = [posts copy];
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
@@ -82,18 +82,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //_countProds = self.products.count;
-//    if (![(NSNumber *)self.products.count isEqual:nil]) {
-//        return self.products.count;
-//    }
-    //return self.products.count;
-    NSLog(@"!!!! There are %lu products counted for", (unsigned long)self.posts.count);
-    //return 1;
     return self.posts.count;
-    
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 442; }
-
 
 @end
