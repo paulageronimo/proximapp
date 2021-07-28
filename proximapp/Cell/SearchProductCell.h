@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchProductCell : UITableViewCell
 
-- (void)updateWithLocation:(NSDictionary *)location;
+- (void)updateWithDetails:(NSDictionary *)post;
 
 @end
 
