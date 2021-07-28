@@ -20,13 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic, strong) NSString *prodName;
 @property (nonatomic, strong) NSString *price;
-//@property (nonatomic, strong) PFObject *availability;
-//@property (nonatomic, strong) NSString *keywords;
+@property (nonatomic, strong) PFObject *availability;
+@property (nonatomic, strong) NSString *keywords;
 
+@property (nonatomic, strong) PFFileObject *logo;
 //TODO: like and comment counts*
 
-+ (void)postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )prodName withCompletion: (PFBooleanResultBlock  _Nullable)completion;
-
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 
 @end
 

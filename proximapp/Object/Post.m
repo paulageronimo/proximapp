@@ -17,27 +17,14 @@
 @dynamic prodName;
 @dynamic image;
 @dynamic price;
-//@dynamic availability;
-//@dynamic keywords;
+@dynamic availability;
+@dynamic keywords;
+@dynamic logo;
 //@dynamic likeCount;
 //@dynamic commentCount;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
-}
-
-+ (void)postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    
-    Post *newPost = [Post new];
-    newPost.image = [self getPFFileFromImage:image];
-    newPost.author = [PFUser currentUser];
-    //newPost.logo = [PFUser currentUser[@"pfp"]];
-    newPost.prodName = caption;
-    newPost.price = @"";
-    //newPost.availability = (PFObject *)@YES;
-    //newPost.keywords = @"";
-    
-    [newPost saveInBackgroundWithBlock: completion];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
