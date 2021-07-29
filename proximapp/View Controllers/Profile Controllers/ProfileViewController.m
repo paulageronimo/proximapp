@@ -30,21 +30,21 @@
 
 //TODO: add a refresh to view
 -(void) setupView {
-    PFUser *currentUser = [PFUser currentUser];
-    
-    self.navBar.title = [@"@" stringByAppendingString:currentUser.username];
-
     _addProductButton.layer.cornerRadius = 12.0;
     _businessBadge.layer.cornerRadius = 12.0;
     _pfp.layer.cornerRadius = 110.0;
     
+    PFUser *currentUser = [PFUser currentUser];
+    
+    self.navBar.title = [@"@" stringByAppendingString:currentUser.username];
+
     if ([currentUser[@"isBusiness"] boolValue]) {
        _businessView.hidden= NO;
    } else {
        _businessView.hidden = YES;
    }
     _username.text = currentUser[@"name"];
-    //_name.text = currentUser.name;
+    
     PFFileObject *pfp = currentUser[@"pfp"];
     [pfp getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (error) {

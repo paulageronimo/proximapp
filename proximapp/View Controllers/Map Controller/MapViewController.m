@@ -13,8 +13,8 @@
 
 @interface MapViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) UIImage *selectedImage;
 @property (weak, nonatomic) IBOutlet UIButton *onNewPostButton;
+@property (strong, nonatomic) UIImage *selectedImage;
 
 @end
 
@@ -29,7 +29,7 @@
 
 - (void)setupView {
     PFUser *currentUser = [PFUser currentUser];
-    if ([currentUser[@"isBusiness"] isEqual:@YES]) {
+    if ([currentUser[@"isBusiness"] boolValue]) {
         _onNewPostButton.hidden = NO;
     } else {
         _onNewPostButton.hidden = YES;
@@ -40,7 +40,8 @@
     PFUser *currentUser = [PFUser currentUser];
     PFGeoPoint *location = currentUser[@"location"];
     
-    MKCoordinateRegion region =MKCoordinateRegionMake(CLLocationCoordinate2DMake(location.latitude, location.longitude), MKCoordinateSpanMake(0.025, 0.025));
+    MKCoordinateRegion region =MKCoordinateRegionMake(CLLocationCoordinate2DMake(location.latitude, location.longitude),
+                                MKCoordinateSpanMake(0.025, 0.025));
     [self.mapView setRegion:region animated:true];
 }
 
@@ -50,6 +51,7 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
      MKAnnotationView *annotationView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
+    
      if (annotationView == nil) {
          annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
          annotationView.canShowCallout = true;
@@ -70,11 +72,9 @@
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
 
-    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }
-    else {
+    } else {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
 
@@ -91,7 +91,8 @@
 
 - (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
     [self.navigationController popViewControllerAnimated:true];
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue,
+                                   longitude.floatValue);
     PhotoAnnotation *point = [PhotoAnnotation new];
     point.coordinate = coordinate;
     point.photo = [self resizeImage:self.selectedImage withSize:CGSizeMake(50.0, 50.0)];
@@ -108,8 +109,6 @@
             break;
         case 2:
             _mapView.mapType = MKMapTypeHybrid;
-            break;
-        default:
             break;
     }
 }

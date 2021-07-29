@@ -17,7 +17,8 @@
     [self setupView];
 }
 - (void)setupView {
-    
+    _postImageView.layer.cornerRadius = 12.0;
+    _priceLabel.layer.cornerRadius = 12.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -30,8 +31,6 @@
     //TODO: upvotes, likes, support button
     
     // TODO: dynamic profile picture
-    
-//    NSLog(@"Setting post! Post = %@", post);
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.productLabel.text = post[@"prodName"];
     self.priceLabel.text = post[@"price"];
@@ -46,8 +45,6 @@
             [self.postImageView setImage:postImg];
         }
     }];
-    
-    NSLog(@"Successfully set product.");
 }
 
 @end

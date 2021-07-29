@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "LocationsViewController.h"
 #import "PhotoAnnotation.h"
+#import "Post.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pictureView;
@@ -27,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
+    [self setPostView];
     [self setupMapView];
 }
 
@@ -36,29 +38,14 @@
     _logoView.layer.cornerRadius = 12.0;
     _visitButton.layer.cornerRadius = 12.0;
     _pictureView.layer.cornerRadius = 12.0;
-    
-    self.navBar.title = [@"Post by @" stringByAppendingString:self.post.author.username];
-
-    self.productLabel.text = self.post.prodName;
-    self.priceLabel.text = self.post.price;
-
-    PFFileObject *img = self.post.image;
-    [img getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error getting image: %@", error.localizedDescription);
-        } else {
-            UIImage *postImg = [UIImage imageWithData:data];
-            [self.pictureView setImage:postImg];
-        }
-    }];
-    self.logoView = self.post.author[@"pfp"];
 }
      
 - (void)setupMapView {
     PFGeoPoint *prodLocation = self.post.author[@"location"];
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
 
-    CLLocationCoordinate2D productCoordinates = CLLocationCoordinate2DMake(prodLocation.latitude, prodLocation.longitude);
+    CLLocationCoordinate2D productCoordinates = CLLocationCoordinate2DMake(prodLocation.latitude,
+                                    prodLocation.longitude);
 
     MKCoordinateSpan span = MKCoordinateSpanMake(0.025, 0.025);
     MKCoordinateRegion region = {productCoordinates, span};
@@ -70,13 +57,13 @@
     point.coordinate = productCoordinates;
     point.title = self.post.prodName;
     point.subtitle = self.post.price;
-    //point.coordinate= region.center;
-    //[_mapView addAnnotation:point];
     [_mapView addAnnotation:point];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    if (annotation == mapView.userLocation) return nil;
+    if (annotation == mapView.userLocation) {
+        return nil;
+    }
 
     static NSString* Identifier = @"PinAnnotationIdentifier";
     MKPinAnnotationView* pinView;
@@ -91,6 +78,27 @@
     }
     pinView.annotation = annotation;
     return pinView;
+}
+
+- (void)setPostView {
+    if (self.post.author.username) {
+        self.navBar.title = [@"Post by @" stringByAppendingString:self.post.author.username];
+    }
+
+    self.productLabel.text = self.post.prodName;
+    self.priceLabel.text = self.post.price;
+
+    PFFileObject *img = self.post.image;
+    [img getDataInBackgroundWithBlock:^(NSData * _Nullable data,
+                                        NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error getting image: %@", error.localizedDescription);
+        } else {
+            UIImage *postImg = [UIImage imageWithData:data];
+            [self.pictureView setImage:postImg];
+        }
+    }];
+    self.logoView = self.post.author[@"pfp"];
 }
 
 // TODO: onBack, clear the pins marked :)

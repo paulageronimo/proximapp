@@ -21,7 +21,6 @@
     PFUser *currentUser = [PFUser currentUser];
     PFGeoPoint *userLocation = currentUser[@"location"];
     _locationLabel.text = (NSString *)userLocation;
-    // Do any additional setup after loading the view.
 }
 
 - (IBAction)onUpdateLocation:(id)sender {

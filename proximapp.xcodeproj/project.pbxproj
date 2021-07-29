@@ -190,6 +190,8 @@
 		5C43630D26A5FD8B00D7BA27 /* Feed Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C66AFD426AD15100066CA10 /* DetailsViewController.h */,
+				5C66AFD526AD15100066CA10 /* DetailsViewController.m */,
 				5CD4422F26A0CFE800C405BE /* FeedViewController.h */,
 				5CD4423026A0CFE800C405BE /* FeedViewController.m */,
 			);
@@ -219,8 +221,6 @@
 		5C66AFC826AABF1B0066CA10 /* User Viewing View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5C66AFD426AD15100066CA10 /* DetailsViewController.h */,
-				5C66AFD526AD15100066CA10 /* DetailsViewController.m */,
 				5C43630E26A607FC00D7BA27 /* otherProfileViewController.h */,
 				5C43630F26A607FC00D7BA27 /* otherProfileViewController.m */,
 				5C66AFD726AD319A0066CA10 /* SearchProductViewController.h */,

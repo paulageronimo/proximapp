@@ -36,7 +36,6 @@
     self.priceField.delegate = self;
     self.keywordField.delegate = self;
     
-    //_postProduct.layer.cornerRadius = 12.0;
     _backgroundView.layer.cornerRadius = 12.0;
 }
 

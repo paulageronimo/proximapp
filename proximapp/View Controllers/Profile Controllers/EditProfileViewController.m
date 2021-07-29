@@ -33,7 +33,7 @@
     _passwordField.placeholder = @"●●●●●●●●●●●●●";
     _profilepicView.layer.cornerRadius = 75.0;
     
-    if ([currentUser[@"isBusiness"] isEqual:@YES]) {
+    if ([currentUser[@"isBusiness"] boolValue]) {
         _profileTypeLabel.text = @"Business";
         [_profileTypeSwitch setOn:YES];
     } else {

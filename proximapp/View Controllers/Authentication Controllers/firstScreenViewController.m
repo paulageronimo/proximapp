@@ -19,6 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupView];
+}
+
+- (void) setupView {
     self.backgroundVideo = [[BackgroundVideo alloc] initOnViewController:self withVideoURL:@"login-video.mp4"];
     [self.backgroundVideo setUpBackground];
     _signupButton.layer.cornerRadius = 12.0;

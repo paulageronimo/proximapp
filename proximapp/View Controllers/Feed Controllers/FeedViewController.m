@@ -42,7 +42,6 @@
 
 - (void)fetchPosts {
     PFQuery *postQuery = [PFQuery queryWithClassName:@"Post"];
-    //[query whereKey:@"likesCount" greaterThan:@100];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
     [postQuery includeKey:@"createdAt"];
