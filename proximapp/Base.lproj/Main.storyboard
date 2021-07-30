@@ -890,7 +890,7 @@
                                     <color key="titleColor" red="0.25831325220000001" green="0.2601550608" blue="0.26568048649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TLC-IO-cWP" kind="show" id="7DD-BS-FUL"/>
+                                    <segue destination="TLC-IO-cWP" kind="show" id="pK5-oA-e4Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1076,8 +1076,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onUpdateLocation:" destination="TLC-IO-cWP" eventType="touchUpInside" id="YSa-kk-OqX"/>
-                                    <action selector="onUpdateLocation:" destination="zer-RK-Szc" eventType="touchUpInside" id="sh4-s8-xpl"/>
+                                    <segue destination="EUn-xP-MJF" kind="show" identifier="locationSegue" id="Wkh-aP-QH6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMj-GH-MZN">
@@ -1088,9 +1087,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnT-Kq-wAN">
-                                <rect key="frame" x="123" y="218" width="168" height="30"/>
+                                <rect key="frame" x="20" y="218" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1104,7 +1103,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URc-io-Ogb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="zer-RK-Szc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4076.811594202899" y="1950.6696428571427"/>
         </scene>
@@ -1276,7 +1274,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapNewPost:" destination="Cmo-jZ-Tdz" eventType="touchUpInside" id="h5a-ht-fU1"/>
-                                    <segue destination="EUn-xP-MJF" kind="show" identifier="tagSegue" id="yRv-7e-2ea"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1595,10 +1592,10 @@
             </objects>
             <point key="canvasLocation" x="-1409" y="2260"/>
         </scene>
-        <!--Locations View Controller-->
+        <!--LocationsViewController-->
         <scene sceneID="rOb-ez-Zn6">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="EUn-xP-MJF" customClass="LocationsViewController" sceneMemberID="viewController">
+                <viewController title="LocationsViewController" modalPresentationStyle="fullScreen" id="EUn-xP-MJF" customClass="LocationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v1d-TH-1Kf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1669,9 +1666,7 @@
                             <constraint firstItem="lWh-Ak-G2E" firstAttribute="trailing" secondItem="Nf8-52-1p4" secondAttribute="trailing" id="wO6-S5-hDN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iRI-nC-01b">
-                        <barButtonItem key="rightBarButtonItem" title="Continue" id="0Zx-VE-eAf"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="iRI-nC-01b"/>
                     <connections>
                         <outlet property="searchBar" destination="s4v-ZR-hdb" id="15x-T3-Y8g"/>
                         <outlet property="tableView" destination="lWh-Ak-G2E" id="qc7-qU-eEn"/>
@@ -1679,7 +1674,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nR-fw-FVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767" y="2373"/>
+            <point key="canvasLocation" x="4874" y="1951"/>
         </scene>
         <!--firstScreenViewController-->
         <scene sceneID="HHH-Nz-goM">

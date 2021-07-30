@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2377BC26B389BC0082F118 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C2377BB26B389BC0082F118 /* Keys.plist */; };
 		5C43630726A5FB1D00D7BA27 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43630626A5FB1D00D7BA27 /* EditProfileViewController.m */; };
 		5C43630A26A5FD1600D7BA27 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43630926A5FD1600D7BA27 /* ProfileViewController.m */; };
 		5C43631026A607FC00D7BA27 /* otherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43630F26A607FC00D7BA27 /* otherProfileViewController.m */; };
@@ -64,6 +65,7 @@
 		169EF12DCDEC5C6EF395FB8E /* libPods-proximapp-proximappUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proximapp-proximappUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		257E0B6DDFBA494C5B40DD90 /* libPods-proximapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proximapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5840D5D6F0461B06D146806E /* Pods-proximapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proximapp.debug.xcconfig"; path = "Target Support Files/Pods-proximapp/Pods-proximapp.debug.xcconfig"; sourceTree = "<group>"; };
+		5C2377BB26B389BC0082F118 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		5C43630526A5FB1D00D7BA27 /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		5C43630626A5FB1D00D7BA27 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		5C43630826A5FD1600D7BA27 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		5CD441E1269CDB8000C405BE = {
 			isa = PBXGroup;
 			children = (
+				5C2377BB26B389BC0082F118 /* Keys.plist */,
 				5CD441EC269CDB8100C405BE /* proximapp */,
 				5CD44208269CDB8200C405BE /* proximappTests */,
 				5CD44213269CDB8200C405BE /* proximappUITests */,
@@ -463,6 +466,7 @@
 				5CD441FA269CDB8200C405BE /* Assets.xcassets in Resources */,
 				5CD441F8269CDB8100C405BE /* Main.storyboard in Resources */,
 				5C66AFD026AAD96B0066CA10 /* login-video.mp4 in Resources */,
+				5C2377BC26B389BC0082F118 /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

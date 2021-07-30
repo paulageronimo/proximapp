@@ -6,6 +6,7 @@
 //
 
 #import "EditLocationViewController.h"
+#import "LocationsViewController.h"
 #import "Parse/Parse.h"
 #import "User.h"
 
@@ -20,18 +21,36 @@
     [super viewDidLoad];
     PFUser *currentUser = [PFUser currentUser];
     PFGeoPoint *userLocation = currentUser[@"location"];
-    _locationLabel.text = (NSString *)userLocation;
+    NSNumber *doubleLatitude = [NSNumber numberWithDouble:userLocation.latitude];
+    NSNumber *doubleLongitude = [NSNumber numberWithDouble:userLocation.longitude];
+    NSString *location = [NSString stringWithFormat:@"%@, %@", [doubleLatitude stringValue], [doubleLongitude stringValue]];
+    _locationLabel.text = location;
+    //[self loadLabels:doubleLongitude, doubleLatitude];
 }
 
-- (IBAction)onUpdateLocation:(id)sender {
-    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-        if (!error) {
-            //TODO: update locaiton label and location in user file
-            PFUser *currentUser = [PFUser currentUser];
-            PFGeoPoint *userLocation = currentUser[@"location"];
-            self->_locationLabel.text = (NSString *)userLocation;
+
+//- (void)loadLabels: (NSNumber *)latitude (NSNumber *)longitude) {
+//
+//}
+
+- (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
+    NSLog(@"%@, %@", latitude, longitude);
+    [self.navigationController  popToRootViewControllerAnimated:YES];
+    NSString *location = [NSString stringWithFormat:@"%@, %@", [latitude stringValue], [longitude stringValue]];
+    _locationLabel.text = location;
+    PFUser *currentUser = [PFUser currentUser];
+    PFGeoPoint *updatedLocation = currentUser[@"location"];
+    updatedLocation.latitude = [latitude doubleValue];
+    updatedLocation.longitude = [longitude doubleValue];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"locationSegue"]) {
+            LocationsViewController *vc = segue.destinationViewController;
+            vc.delegate = self;
         }
-    }];
 }
 
 @end
