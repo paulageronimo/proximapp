@@ -79,26 +79,4 @@ static PFGeoPoint *newUserLocation;
      }];
 }
 
-#pragma mark - helper functions
-
-- (BOOL)validInfo {
-    if ([self.usernameField.text isEqual:@""]||[self.passwordField.text isEqual:@""]||[self.emailField.text isEqual:@""]) {
-        [self alert:@"Invalid username and password."];
-        return false;
-    }
-    return true;
-    
-}
-
-- (void)alert: (NSString *)errorMessage{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification"
-    message:errorMessage
-    preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-    style:UIAlertActionStyleDefault
-    handler:^(UIAlertAction * _Nonnull action) {}];
-    [alert addAction:okAction];
-    [self presentViewController:alert animated:YES completion:^{}];
-}
-
 @end

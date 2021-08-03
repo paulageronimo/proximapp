@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(BOOL) changeProfileType:(NSNumber *)isOnOrOff forUser:(User *)user completion: (PFBooleanResultBlock _Nullable)completion;
 
++ (void)alert: (NSString *)errorMessage;
++ (BOOL)validInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END
