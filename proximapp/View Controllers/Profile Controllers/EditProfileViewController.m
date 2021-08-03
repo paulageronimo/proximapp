@@ -71,8 +71,8 @@
 
 - (void)switchProfileType: (NSNumber *)boolean {
     PFUser *currentUser = [PFUser currentUser];
-      currentUser[@"isBusiness"] = boolean;
-     
+    currentUser[@"isBusiness"] = [NSNumber numberWithBool:_profileTypeSwitch.isOn];
+    
     [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
           if (succeeded) {
               [self alert:@"User profile type switched."];

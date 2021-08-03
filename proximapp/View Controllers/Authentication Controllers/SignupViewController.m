@@ -72,17 +72,9 @@ static PFGeoPoint *newUserLocation;
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              NSLog(@"\nCurrent Location Detected\n");
              NSLog(@"placemark %@",placemark);
-             // NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-             // NSString *Address = [[NSString alloc]initWithString:locatedAt];
-             // NSString *Address = [[NSString alloc]initWithString:locatedAt];
-             // NSString *Area = [[NSString alloc]initWithString:placemark.locality];
-             // NSString *Country = [[NSString alloc]initWithString:placemark.country];
-             // NSString *CountryArea = [NSString stringWithFormat:@"%@, %@", Area,Country];
-             //  NSLog(@"%@",CountryArea);
          } else {
              NSLog(@"Geocode failed with error %@", error);
              NSLog(@"\nCurrent Location Not Detected\n");
-             //NSString *CountryArea = NULL;
          }
      }];
 }
