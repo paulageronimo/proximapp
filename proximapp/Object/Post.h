@@ -1,5 +1,5 @@
 //
-//  Product.h
+//  Post.h
 //  proximapp
 //
 //  Created by Paula Leticia Geronimo on 7/15/21.
