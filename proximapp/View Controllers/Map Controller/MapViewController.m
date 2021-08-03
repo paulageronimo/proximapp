@@ -29,11 +29,7 @@
 
 - (void)setupView {
     PFUser *currentUser = [PFUser currentUser];
-    if ([currentUser[@"isBusiness"] boolValue]) {
-        _onNewPostButton.hidden = NO;
-    } else {
-        _onNewPostButton.hidden = YES;
-    }
+    _onNewPostButton.hidden = ![currentUser[@"isBusiness"] boolValue];
 }
 
 - (void)setupMapView {
@@ -66,20 +62,6 @@
     annotationView.image = photoAnnotationItem.photo;
     return annotationView;
  }
-
-- (IBAction)onNewPostButton:(id)sender {
-    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-    imagePickerVC.delegate = self;
-    imagePickerVC.allowsEditing = YES;
-
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-
-    [self presentViewController:imagePickerVC animated:YES completion:nil];
-}
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     self.selectedImage = info[UIImagePickerControllerEditedImage];
