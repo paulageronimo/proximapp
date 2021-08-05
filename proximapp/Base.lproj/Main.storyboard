@@ -681,14 +681,24 @@
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Th-Vj-ddc">
-                                <rect key="frame" x="20" y="9" width="374" height="32"/>
+                                <rect key="frame" x="106" y="9" width="288" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Relevancy"/>
                                     <segment title="Price"/>
                                     <segment title="Location"/>
                                 </segments>
+                                <connections>
+                                    <action selector="setSortType:" destination="zdp-Oy-Idd" eventType="valueChanged" id="Pmp-WQ-QEN"/>
+                                </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sort by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKa-g1-gLP">
+                                <rect key="frame" x="20" y="14" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lkp-kv-YVw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -703,7 +713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXy-cW-sGk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771.01449275362324" y="2345.7589285714284"/>
+            <point key="canvasLocation" x="1218.840579710145" y="2355.1339285714284"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="aaH-xI-hxQ">

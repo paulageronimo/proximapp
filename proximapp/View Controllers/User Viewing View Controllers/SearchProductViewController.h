@@ -6,11 +6,24 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <JHChainableAnimations/JHChainableAnimations.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+//@interface SearchProductViewController : UIViewController
+//
+//@end
+
+@class SearchProductViewController;
+
+@protocol SearchProductViewControllerDelegate
+
+- (void)searchProductViewController:(SearchProductViewController *)controller didPickItem:(NSString *)objID;
+
+@end
+
 @interface SearchProductViewController : UIViewController
+
+@property (weak, nonatomic) id<SearchProductViewControllerDelegate> delegate;
 
 @end
 
