@@ -19,6 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setLocationView];
+}
+
+- (void)setLocationView {
     PFUser *currentUser = [PFUser currentUser];
     PFGeoPoint *userLocation = currentUser[@"location"];
     NSNumber *doubleLatitude = [NSNumber numberWithDouble:userLocation.latitude];

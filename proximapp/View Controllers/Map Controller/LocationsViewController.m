@@ -84,8 +84,8 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
     NSURL *url = [NSURL URLWithString:[baseURLString stringByAppendingString:queryString]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-                                          delegate:nil
-                                          delegateQueue:[NSOperationQueue mainQueue]];
+                        delegate:nil
+                        delegateQueue:[NSOperationQueue mainQueue]];
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (data) {
