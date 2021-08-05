@@ -40,7 +40,6 @@
     _backgroundView.layer.cornerRadius = 12.0;
 }
 
-//TODO: make this code less messy :/
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
@@ -94,6 +93,8 @@
     UIViewController *HomeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     sceneDelegate.window.rootViewController = HomeViewController;
 }
+
+#pragma mark image editor functions
 
 - (IBAction)imageSelected:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
