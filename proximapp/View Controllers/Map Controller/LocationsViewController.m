@@ -63,7 +63,6 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(fetchLocation:) object:newText];
 
     [self performSelector:@selector(fetchLocation:) withObject:newText afterDelay:0.5];
-
     return true;
 }
 

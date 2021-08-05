@@ -12,14 +12,13 @@
 @dynamic isBusiness;
 @dynamic name;
 @dynamic location;
-//@dynamic
 
-+(void) changeUserPfp:(User *)user withPfp:(UIImage *)pfp completion:(PFBooleanResultBlock)completion {
++ (void) changeUserPfp:(User *)user withPfp:(UIImage *)pfp completion:(PFBooleanResultBlock)completion {
     user.pfp = [self getPFFileFromImage:pfp];
     [user saveInBackgroundWithBlock:completion];
 }
 
-+(PFFileObject *) getPFFileFromImage: (UIImage * _Nullable)image {
++ (PFFileObject *) getPFFileFromImage: (UIImage * _Nullable)image {
     if (!image) {
         return nil;
     }
@@ -30,27 +29,7 @@
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
-+(BOOL) changeProfileType:(NSNumber *)isOnOrOff forUser:(User *)user completion: (PFBooleanResultBlock _Nullable)completion {
-    if (isOnOrOff) {
-        user.isBusiness = (PFObject *)@YES;
-        [user saveInBackgroundWithBlock:completion];
-    } else {
-        user.isBusiness = (PFObject *)@NO;
-        [user saveInBackgroundWithBlock:completion];
-    }
-    return nil;
-}
-
 #pragma mark - helper functions
-
-+ (BOOL)validInfo {
-    if ([self->usernameField.text isEqual:@""]||[self.passwordField.text isEqual:@""]||[self.emailField.text isEqual:@""]) {
-        [self alert:@"Invalid username and password."];
-        return false;
-    }
-    return true;
-    
-}
 
 + (void)alert: (NSString *)errorMessage {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification"
@@ -60,7 +39,7 @@
     style:UIAlertActionStyleDefault
     handler:^(UIAlertAction * _Nonnull action) {}];
     [alert addAction:okAction];
-    [self presentViewController:alert animated:YES completion:^{}];
+    //[self presentViewController:alert animated:YES completion:^{}];
 }
 
 @end

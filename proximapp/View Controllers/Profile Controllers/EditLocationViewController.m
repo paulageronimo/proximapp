@@ -25,13 +25,8 @@
     NSNumber *doubleLongitude = [NSNumber numberWithDouble:userLocation.longitude];
     NSString *location = [NSString stringWithFormat:@"%@, %@", [doubleLatitude stringValue], [doubleLongitude stringValue]];
     _locationLabel.text = location;
-    //[self loadLabels:doubleLongitude, doubleLatitude];
 }
 
-
-//- (void)loadLabels: (NSNumber *)latitude (NSNumber *)longitude) {
-//
-//}
 
 - (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {
     NSLog(@"%@, %@", latitude, longitude);

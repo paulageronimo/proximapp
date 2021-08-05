@@ -6,7 +6,7 @@
 //
 #import "Parse/Parse.h"
 #import "SignupViewController.h"
-
+#import "User.h"
 
 @interface SignupViewController ()
 // @property(weak, nonatomic) IBOutlet UITextField *nameField;
@@ -26,10 +26,11 @@ static PFGeoPoint *newUserLocation;
 }
 
 - (IBAction)onSignup:(id)sender {
-    if ([self validInfo]) {
+    if ([self.usernameField.text isEqual:@""]
+        ||[self.passwordField.text isEqual:@""]
+        ||[self.emailField.text isEqual:@""]) {
         PFUser *newUser = [PFUser user];
         
-        //TODO: name field ??
         newUser.username = self.usernameField.text;
         newUser.email = self.emailField.text;
         newUser.password = self.passwordField.text;
@@ -39,9 +40,9 @@ static PFGeoPoint *newUserLocation;
         
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
-                [self alert:@"Unable to register user."];
+                [User alert:@"Unable to register user."];
             } else {
-                [self alert:@"User registered successfully"];
+                [User alert:@"User registered successfully"];
                 [self performSegueWithIdentifier:@"toLoginSegue" sender:nil];
             }
         }];
@@ -67,16 +68,7 @@ static PFGeoPoint *newUserLocation;
     CLLocation *currentLocation = [locations objectAtIndex:0];
     [locationManager stopUpdatingLocation];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
-    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-         if (!(error)) {
-             CLPlacemark *placemark = [placemarks objectAtIndex:0];
-             NSLog(@"\nCurrent Location Detected\n");
-             NSLog(@"placemark %@",placemark);
-         } else {
-             NSLog(@"Geocode failed with error %@", error);
-             NSLog(@"\nCurrent Location Not Detected\n");
-         }
-     }];
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {}];
 }
 
 @end

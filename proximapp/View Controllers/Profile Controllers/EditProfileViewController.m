@@ -42,48 +42,24 @@
     }
 }
 
+
 - (IBAction)onProfileSwitch:(id)sender {
     PFUser *currentUser = [PFUser currentUser];
-    if (_profileTypeSwitch.isOn) {
-        _profileTypeLabel.text = @"Business";
-        currentUser[@"isBusiness"] = @YES;
-       
-        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-              if (succeeded) {
-                  [self alert:@"User profile type switched."];
-              } else {
-                  [self alert:@"Unable to switch profile."];
-              }
-        }];
-    } else {
-        _profileTypeLabel.text = @"Personal";
-        currentUser[@"isBusiness"] = @NO;
-       
-        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-              if (succeeded) {
-                  [self alert:@"User profile type switched."];
-              } else {
-                  [self alert:@"Unable to switch profile."];
-              }
-        }];
-    }
-}
-
-- (void)switchProfileType: (NSNumber *)boolean {
-    PFUser *currentUser = [PFUser currentUser];
+    //currentUser[@"isBusiness"] = !(NSNumber *)_profileTypeSwitch.isOn;
     currentUser[@"isBusiness"] = [NSNumber numberWithBool:_profileTypeSwitch.isOn];
     
-    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-          if (succeeded) {
-              [self alert:@"User profile type switched."];
-              [self performSegueWithIdentifier:@"toSettingsSegue" sender:nil];
-          } else {
-              [self alert:@"Unable to switch profile."];
-          }
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            [self alert:@"User profile type switched."];
+            //[ProfileViewController viewDidLoad];
+            //[self performSegueWithIdentifier:@"toSettingsSegue" sender:nil];
+        } else {
+            [self alert:@"Unable to switch profile."];
+        }
     }];
+    _profileTypeLabel.text = [currentUser[@"isBusiness"] boolValue]?
+                                @"Business": @"Personal";
 }
-
-//TODO: implement save button ??
 
 - (void)alert: (NSString *)errorMessage{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification"

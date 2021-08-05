@@ -16,6 +16,7 @@
     [super awakeFromNib];
     [self setupView];
 }
+
 - (void)setupView {
     _postImageView.layer.cornerRadius = 12.0;
     _priceLabel.layer.cornerRadius = 12.0;

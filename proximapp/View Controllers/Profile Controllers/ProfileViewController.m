@@ -30,30 +30,36 @@
 
 //TODO: add a refresh to view
 -(void) setupView {
+    PFQuery *query = [PFUser query];
+    PFUser *currentUser = [PFUser currentUser];
+    [query whereKey:@"username" equalTo:currentUser];
+    
     _addProductButton.layer.cornerRadius = 12.0;
     _businessBadge.layer.cornerRadius = 12.0;
     _pfp.layer.cornerRadius = 110.0;
     
-    PFUser *currentUser = [PFUser currentUser];
-    
-    self.navBar.title = [@"@" stringByAppendingString:currentUser.username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+        NSLog(@"RESULTS.");
+        NSLog(@"%@", results);
+        self.navBar.title = [@"@" stringByAppendingString:currentUser.username];
 
-    if ([currentUser[@"isBusiness"] boolValue]) {
-       _businessView.hidden= NO;
-   } else {
-       _businessView.hidden = YES;
-   }
-    _username.text = currentUser[@"name"];
-    
-    PFFileObject *pfp = currentUser[@"pfp"];
-    [pfp getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error fetching profile pic: %@", error.localizedDescription);
-        } else {
-            UIImage *pfpImg = [UIImage imageWithData:data];
-            [self.pfp setImage:pfpImg];
-            self.pfp.layer.cornerRadius = self.pfp.frame.size.height/2;
-        }
+        if ([currentUser[@"isBusiness"] boolValue]) {
+            self.businessView.hidden= NO;
+       } else {
+           self.businessView.hidden = YES;
+       }
+        self.username.text = currentUser[@"name"];
+        
+        PFFileObject *pfp = currentUser[@"pfp"];
+        [pfp getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error fetching profile pic: %@", error.localizedDescription);
+            } else {
+                UIImage *pfpImg = [UIImage imageWithData:data];
+                [self.pfp setImage:pfpImg];
+                self.pfp.layer.cornerRadius = self.pfp.frame.size.height/2;
+            }
+        }];
     }];
 }
 

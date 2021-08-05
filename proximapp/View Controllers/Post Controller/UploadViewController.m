@@ -8,6 +8,7 @@
 #import "UploadViewController.h"
 #import "Parse/Parse.h"
 #import "Post.h"
+#import "User.h"
 #import "FeedProductCell.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
@@ -51,7 +52,7 @@
 
 - (IBAction)sharePost:(id)sender {
     if (self.image == nil) {
-        [self alert:@"An image has not been selected."];
+        [User alert:@"An image has not been selected."];
     } else {
         [self createPost];
     }
@@ -72,17 +73,13 @@
     newPost.availability = (PFObject *)@YES;
     newPost.keywords = _keywordField.text;
 
-    if (_isAvailable.isOn) {
-        newPost[@"isAvailable"] = @YES;
-    } else {
-        newPost[@"isAvailable"] = @NO;
-    }
-    //currentPost[@"keywords"] = ;
+    newPost[@"isAvailable"] = _isAvailable.isOn? @YES:@NO;
+    
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
       if (succeeded) {
-          // TODO: alert that notifies you have posted? send to notification array?
+          // TODO: send to notification array.
       } else {
-          [self alert:@"Unable to be posted."];
+          [User alert:@"Unable to be posted."];
       }
     }];
     
@@ -139,10 +136,4 @@
     return newImage;
 }
 
-- (void)alert: (NSString *)errorMessage {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Notification" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
-    [alert addAction:dismissAction];
-    [self presentViewController:alert animated:YES completion:^{}];
-}
 @end
