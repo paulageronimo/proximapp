@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
     CLLocationManager *locationManager;
 }
 
-- (void) alert: (NSString *)errorMessage;
-
 @end
 
 NS_ASSUME_NONNULL_END
