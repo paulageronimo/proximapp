@@ -19,11 +19,15 @@ Prox-Mapp: bridging the gap between small businesses and their community. This a
 
 **Required Must-have Stories**
 
-* User can create a new account (business/personal account)
-* User can login
+* User can create a new account
+* User can switch between business and personal account
+* User can login, sign out, and stay in session when re-opening the app
 * Business accounts can post a new photo to their feed (default is their current or selected location)
+* Business account posts can submit the title of their item, 
 * News feed of posts of (desired location+radius)
+* Users can select post and see the details and who the seller is and on the product itself
 * Can search up products, will be given a list of products of best keyword match from businesses in their location+radius *will be provided simliar items outside of their location*
+* User can change their location
 
 **Optional Nice-to-have Stories**
 * User can view other business profiles 
