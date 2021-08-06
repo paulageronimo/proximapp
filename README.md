@@ -24,12 +24,12 @@ Prox-Mapp: bridging the gap between small businesses and their community. This a
 * Business accounts can post a new photo to their feed (default is their current or selected location)
 * News feed of posts of (desired location+radius)
 * Can search up products, will be given a list of products of best keyword match from businesses in their location+radius *will be provided simliar items outside of their location*
+
+**Optional Nice-to-have Stories**
 * User can view other business profiles 
 * Users can see business profile's product feed
 * User can view a feed of photosUser can see notifications when their product is supported
 * User can see notifications of new items posted near them
-
-**Optional Nice-to-have Stories**
 * Users can follow business pages
 * User can follow/unfollow another user
 * User can see their profile page with their photos
