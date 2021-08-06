@@ -23,6 +23,7 @@
 		5C66AFD326ACEA1D0066CA10 /* firstScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD226ACEA1D0066CA10 /* firstScreenViewController.m */; };
 		5C66AFD626AD15100066CA10 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD526AD15100066CA10 /* DetailsViewController.m */; };
 		5C66AFD926AD319A0066CA10 /* SearchProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */; };
+		5C98EBD026BC04A60072CCD7 /* PostGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C98EBCF26BC04A60072CCD7 /* PostGridCell.m */; };
 		5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */; };
 		5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F4226A943A9009063BA /* LocationCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
@@ -95,6 +96,8 @@
 		5C66AFD526AD15100066CA10 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		5C66AFD726AD319A0066CA10 /* SearchProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchProductViewController.h; sourceTree = "<group>"; };
 		5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchProductViewController.m; sourceTree = "<group>"; };
+		5C98EBCE26BC04A60072CCD7 /* PostGridCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostGridCell.h; sourceTree = "<group>"; };
+		5C98EBCF26BC04A60072CCD7 /* PostGridCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostGridCell.m; sourceTree = "<group>"; };
 		5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
 		5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 		5CBD3F4126A943A9009063BA /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				5C43632326A76CD900D7BA27 /* SearchProductCell.m */,
 				5CBD3F4126A943A9009063BA /* LocationCell.h */,
 				5CBD3F4226A943A9009063BA /* LocationCell.m */,
+				5C98EBCE26BC04A60072CCD7 /* PostGridCell.h */,
+				5C98EBCF26BC04A60072CCD7 /* PostGridCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,
 				5CD44228269F557100C405BE /* LoginViewController.m in Sources */,
+				5C98EBD026BC04A60072CCD7 /* PostGridCell.m in Sources */,
 				5C66AFD626AD15100066CA10 /* DetailsViewController.m in Sources */,
 				5C66AFC726AAAC040066CA10 /* Post.m in Sources */,
 				5CD4422E26A0841000C405BE /* SettingsViewController.m in Sources */,
