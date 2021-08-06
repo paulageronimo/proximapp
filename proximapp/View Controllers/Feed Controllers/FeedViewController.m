@@ -62,7 +62,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segId = [segue identifier];
-    if ([segId isEqualToString:@"DetailsViewController"]) {
+    if ([segId isEqualToString:@"details"]) {
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Post *post = self.posts[indexPath.row];
