@@ -23,17 +23,16 @@ Prox-Mapp: bridging the gap between small businesses and their community. This a
 [x] User can login
 [x] Business accounts can post a new photo to their feed (default is their current or selected location)
 [x] News feed of posts of (desired location+radius)
-[] Can search up products, will be given a list of products of best keyword match from businesses in their location+radius *will be provided simliar items outside of their location*
-[] User can view other business profiles 
-[] Users can see business profile's product feed
-[] User can view a feed of photosUser can see notifications when their photo is
-[] User can see notifications of new items posted near them
+[x] Can search up products, will be given a list of products of best keyword match from businesses in their location+radius *will be provided simliar items outside of their location*
+[x] User can view other business profiles 
+[x] Users can see business profile's product feed
+[x] User can view a feed of photosUser can see notifications when their product is supported
+[x] User can see notifications of new items posted near them
 
 **Optional Nice-to-have Stories**
 * Users can follow business pages
 * User can follow/unfollow another user
 * User can see their profile page with their photos
-* User can see a list of their followers & following
 
 ### 2. Screen Archetypes
 
