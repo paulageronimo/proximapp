@@ -47,9 +47,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"locationSegue"]) {
-            LocationsViewController *vc = segue.destinationViewController;
-            vc.delegate = self;
-        }
+        LocationsViewController *vc = segue.destinationViewController;
+        vc.delegate = self;
+    }
 }
 
 @end
