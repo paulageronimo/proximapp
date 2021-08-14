@@ -37,7 +37,7 @@
     PFGeoPoint *location = currentUser[@"location"];
     
     MKCoordinateRegion region =MKCoordinateRegionMake(CLLocationCoordinate2DMake(location.latitude, location.longitude),
-                                MKCoordinateSpanMake(0.025, 0.025));
+                                MKCoordinateSpanMake(0.012, 0.012));
     [self.mapView setRegion:region animated:true];
 }
 
