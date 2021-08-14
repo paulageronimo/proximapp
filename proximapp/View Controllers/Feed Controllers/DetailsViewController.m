@@ -85,9 +85,7 @@
 }
 
 - (void)setPostView {
-    if (self.post.author.username) {
-        self.navBar.title = [@"Post by @" stringByAppendingString:self.post.author.username];
-    }
+    self.navBar.title = [@"Post by @" stringByAppendingString:self.post.author.username];
 
     self.productLabel.text = self.post.prodName;
     NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
@@ -106,7 +104,5 @@
     }];
     self.logoView = self.post.author[@"pfp"];
 }
-
-// TODO: onBack, clear the pins marked :)
 
 @end
