@@ -6,11 +6,11 @@
 //
 
 #import "SearchProductCell.h"
+#import "Parse.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface SearchProductCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *categoryImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -31,7 +31,11 @@
 
 - (void)updateWithDetails:(NSDictionary *)post {
     self.nameLabel.text = post[@"prodName"];
-    self.priceLabel.text = post[@"price"];
+    
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    self.priceLabel.text = [currencyFormatter stringFromNumber:post[@"price"]];
+    
     self.distanceLabel.text = post[@"location"];
 }
 

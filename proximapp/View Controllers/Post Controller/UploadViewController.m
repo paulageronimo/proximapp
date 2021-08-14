@@ -68,7 +68,7 @@
     newPost.author = currentUser;
     newPost.logo = currentUser[@"pfp"];
     newPost.prodName = _productNameField.text;
-    newPost.price = _priceField.text;
+    newPost.price = @([_priceField.text floatValue]);
     newPost.availability = (PFObject *)@YES;
     newPost.keywords = _keywordField.text;
 

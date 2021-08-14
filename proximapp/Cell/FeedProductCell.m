@@ -34,7 +34,10 @@
     // TODO: dynamic profile picture
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.productLabel.text = post[@"prodName"];
-    self.priceLabel.text = post[@"price"];
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    self.priceLabel.text = [currencyFormatter stringFromNumber:post[@"price"]];
+    
     self.timeLabel.text = [post.createdAt timeAgoSinceNow];
     
     PFFileObject *img = post[@"image"];

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic, strong) NSString *prodName;
-@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) PFObject *availability;
 @property (nonatomic, strong) NSString *keywords;
 

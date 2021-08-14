@@ -55,8 +55,12 @@
     
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
     point.coordinate = productCoordinates;
+    
     point.title = self.post.prodName;
-    point.subtitle = self.post.price;
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    point.subtitle = [currencyFormatter stringFromNumber:self.post[@"price"]];
+    
     [_mapView addAnnotation:point];
 }
 
@@ -86,8 +90,10 @@
     }
 
     self.productLabel.text = self.post.prodName;
-    self.priceLabel.text = self.post.price;
-
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    self.priceLabel.text = [currencyFormatter stringFromNumber:self.post[@"price"]];
+    
     PFFileObject *img = self.post.image;
     [img getDataInBackgroundWithBlock:^(NSData * _Nullable data,
                                         NSError * _Nullable error) {
