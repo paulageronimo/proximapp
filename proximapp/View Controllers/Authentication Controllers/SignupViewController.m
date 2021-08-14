@@ -34,9 +34,11 @@ static PFGeoPoint *newUserLocation;
         newUser.username = self.usernameField.text;
         newUser.email = self.emailField.text;
         newUser.password = self.passwordField.text;
-        [self getUserLocation];
-        [self getUserLocation];
-        newUser[@"location"] = newUserLocation;
+        
+        PFGeoPoint *location;
+        location.latitude = 27.44661708289829;
+        location.longitude = -99.46378527362778;
+        newUserLocation = location;
         
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
@@ -47,28 +49,6 @@ static PFGeoPoint *newUserLocation;
             }
         }];
     }
-}
-
-- (void)getUserLocation {
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-        [self->locationManager requestWhenInUseAuthorization];
-
-    [locationManager startUpdatingLocation];
-    
-    newUserLocation = [PFGeoPoint geoPointWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation *currentLocation = [locations objectAtIndex:0];
-    [locationManager stopUpdatingLocation];
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
-    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {}];
 }
 
 @end
