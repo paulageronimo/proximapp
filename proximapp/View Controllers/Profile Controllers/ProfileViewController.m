@@ -29,7 +29,6 @@
 
 -(void) viewDidLoad {
     [super viewDidLoad];
-    [self loadPosts];
     [self setupView];
     [self setupLayout];
 }
@@ -74,11 +73,8 @@
 
 -(void) setupLayout{
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged]; //Deprecated and only used for older objects
-    // So do it on self, call the method, and then update interface as needed
-    [self.collectionView insertSubview:self.refreshControl atIndex:0]; // controls where you put it in the view hierarchy
-    
-    // Setup layout
+    [self.refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView insertSubview:self.refreshControl atIndex:0];
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 5;
     layout.minimumLineSpacing = 0;
@@ -89,22 +85,18 @@
 }
 
 -(void) loadPosts{
-    // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query whereKey:@"author" containsString:@"objectId"];
     query.limit = 20;
     [query orderByDescending:@"createdAt"];
-    // Needed to grab the author
     [query includeKey:@"author"];
     
-    // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            // do something with the array of object returned by the call
             self.posts = (NSMutableArray*) posts;
             [self.collectionView reloadData];
         } else {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"ERROR LOADING POSTS %@", error.localizedDescription);
         }
         [self.refreshControl endRefreshing];
         [self.loadingIndicator stopAnimating];
@@ -125,8 +117,7 @@
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    
-    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
+
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Take a Picture or Select Photo"
@@ -154,7 +145,6 @@
             // optional code for what happens after the alert controller has finished presenting
         }];
     } else {
-        NSLog(@"Camera 🚫 available so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePickerVC animated:YES completion:nil];
     }
