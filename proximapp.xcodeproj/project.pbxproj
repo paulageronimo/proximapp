@@ -24,6 +24,7 @@
 		5C66AFD626AD15100066CA10 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD526AD15100066CA10 /* DetailsViewController.m */; };
 		5C66AFD926AD319A0066CA10 /* SearchProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */; };
 		5C98EBD026BC04A60072CCD7 /* PostGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C98EBCF26BC04A60072CCD7 /* PostGridCell.m */; };
+		5C98EBD726C429E80072CCD7 /* SearchDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C98EBD626C429E80072CCD7 /* SearchDetailsViewController.m */; };
 		5CBD3F4026A938D3009063BA /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */; };
 		5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD3F4226A943A9009063BA /* LocationCell.m */; };
 		5CD441EF269CDB8100C405BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD441EE269CDB8100C405BE /* AppDelegate.m */; };
@@ -98,6 +99,8 @@
 		5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchProductViewController.m; sourceTree = "<group>"; };
 		5C98EBCE26BC04A60072CCD7 /* PostGridCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostGridCell.h; sourceTree = "<group>"; };
 		5C98EBCF26BC04A60072CCD7 /* PostGridCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostGridCell.m; sourceTree = "<group>"; };
+		5C98EBD526C429E80072CCD7 /* SearchDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchDetailsViewController.h; sourceTree = "<group>"; };
+		5C98EBD626C429E80072CCD7 /* SearchDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchDetailsViewController.m; sourceTree = "<group>"; };
 		5CBD3F3E26A938D3009063BA /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
 		5CBD3F3F26A938D3009063BA /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 		5CBD3F4126A943A9009063BA /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
@@ -217,8 +220,6 @@
 			children = (
 				5C43631B26A7692900D7BA27 /* MapViewController.h */,
 				5C43631C26A7692900D7BA27 /* MapViewController.m */,
-				5C43631F26A76BC400D7BA27 /* LocationsViewController.h */,
-				5C43632026A76BC400D7BA27 /* LocationsViewController.m */,
 			);
 			path = "Map Controller";
 			sourceTree = "<group>";
@@ -228,10 +229,21 @@
 			children = (
 				5C43630E26A607FC00D7BA27 /* otherProfileViewController.h */,
 				5C43630F26A607FC00D7BA27 /* otherProfileViewController.m */,
-				5C66AFD726AD319A0066CA10 /* SearchProductViewController.h */,
-				5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */,
 			);
 			path = "User Viewing View Controllers";
+			sourceTree = "<group>";
+		};
+		5C98EBD426C429C40072CCD7 /* Search View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C66AFD726AD319A0066CA10 /* SearchProductViewController.h */,
+				5C66AFD826AD319A0066CA10 /* SearchProductViewController.m */,
+				5C98EBD526C429E80072CCD7 /* SearchDetailsViewController.h */,
+				5C98EBD626C429E80072CCD7 /* SearchDetailsViewController.m */,
+				5C43631F26A76BC400D7BA27 /* LocationsViewController.h */,
+				5C43632026A76BC400D7BA27 /* LocationsViewController.m */,
+			);
+			path = "Search View Controllers";
 			sourceTree = "<group>";
 		};
 		5CD441E1269CDB8000C405BE = {
@@ -327,6 +339,7 @@
 		5CD44225269F554E00C405BE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C98EBD426C429C40072CCD7 /* Search View Controllers */,
 				5C66AFC826AABF1B0066CA10 /* User Viewing View Controllers */,
 				5C43631E26A76BB300D7BA27 /* Map Controller */,
 				5C43631726A613F400D7BA27 /* Post Controller */,
@@ -614,6 +627,7 @@
 				5C66AFD326ACEA1D0066CA10 /* firstScreenViewController.m in Sources */,
 				5CBD3F4326A943A9009063BA /* LocationCell.m in Sources */,
 				5CD441F2269CDB8100C405BE /* SceneDelegate.m in Sources */,
+				5C98EBD726C429E80072CCD7 /* SearchDetailsViewController.m in Sources */,
 				5CD44228269F557100C405BE /* LoginViewController.m in Sources */,
 				5C98EBD026BC04A60072CCD7 /* PostGridCell.m in Sources */,
 				5C66AFD626AD15100066CA10 /* DetailsViewController.m in Sources */,
